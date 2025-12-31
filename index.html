@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitekaro Group Company (MGL)</title>
+    <title>Twing Memorial Schools | Quality Education Since 1985</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0a3d62;
-            --secondary: #1e90ff;
-            --accent: #00b894;
-            --light: #f7f9fc;
-            --dark: #2d3436;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --primary: #1a5f7a;
+            --secondary: #57cc99;
+            --accent: #ff9a3c;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --warning: #ffc107;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
         }
 
@@ -24,16 +26,15 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f9f9f9;
+            background-color: #fff;
             overflow-x: hidden;
-            padding-top: 80px; /* Added for fixed header */
         }
 
         h1, h2, h3, h4, h5 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--primary);
@@ -46,24 +47,81 @@
             padding: 0 15px;
         }
 
-        /* STATIONARY HEADER STYLES */
-        header {
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 30px rgba(10, 61, 98, 0.1);
-            position: fixed; /* Changed to fixed for stationary header */
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(10, 61, 98, 0.08);
-            animation: slideDown 0.5s ease;
-            transition: all 0.3s ease;
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
         }
 
-        @keyframes slideDown {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 1rem auto 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: #3bbf7f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(87, 204, 153, 0.3);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #0d4c63;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #ff8c1a;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
         }
 
         .header-content {
@@ -71,391 +129,102 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
-            position: relative;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            animation: fadeIn 1s ease;
             text-decoration: none;
-            transition: var(--transition);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
 
         .logo-icon {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background-color: var(--primary);
             color: white;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             font-weight: 700;
-            box-shadow: 0 4px 12px rgba(10, 61, 98, 0.2);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: 0.5s;
-        }
-
-        .logo:hover .logo-icon::before {
-            left: 100%;
-        }
-
-        .logo:hover .logo-icon {
-            transform: scale(1.05) rotate(5deg);
-            box-shadow: 0 6px 20px rgba(10, 61, 98, 0.3);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
+            margin-right: 12px;
+            box-shadow: 0 4px 10px rgba(26, 95, 122, 0.2);
         }
 
         .logo-text h1 {
             font-size: 1.5rem;
             margin-bottom: 0;
             color: var(--primary);
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            transition: var(--transition);
-        }
-
-        .logo:hover .logo-text h1 {
-            color: var(--secondary);
         }
 
         .logo-text span {
             color: var(--accent);
-            font-weight: 500;
             font-size: 0.8rem;
-            letter-spacing: 1px;
-            transition: var(--transition);
-        }
-
-        .logo:hover .logo-text span {
-            color: var(--secondary);
-        }
-
-        /* Navigation Styles */
-        nav {
-            display: flex;
-            align-items: center;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 10px;
-        }
-
-        nav ul li {
-            position: relative;
+            gap: 25px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            font-size: 0.95rem;
             transition: var(--transition);
-            display: flex;
-            align-items: center;
-            padding: 0.8rem 1.2rem;
-            border-radius: 8px;
+            padding: 0.5rem 0;
             position: relative;
-            overflow: hidden;
-            background: transparent;
-            white-space: nowrap;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
         }
 
-        nav ul li a i {
-            margin-right: 8px;
-            font-size: 0.9rem;
-            width: 18px;
-            text-align: center;
-        }
-
-        nav ul li a::before {
+        nav ul li a::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 184, 148, 0.1) 100%);
-            opacity: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
             transition: var(--transition);
-            z-index: -1;
-            border-radius: 8px;
         }
 
-        nav ul li a:hover::before {
-            opacity: 1;
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         nav ul li a:hover {
             color: var(--primary);
-            transform: translateY(-2px);
         }
 
-        /* Active Link */
-        nav ul li a.active {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(10, 61, 98, 0.2);
-        }
-
-        nav ul li a.active:hover {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-        }
-
-        /* Dropdown Menu */
-        .dropdown-menu {
-            position: absolute;
-            top: calc(100% + 10px);
-            left: 0;
-            background-color: white;
-            min-width: 220px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            border-radius: 12px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(15px);
-            transition: var(--transition);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            border: 1px solid rgba(10, 61, 98, 0.1);
-            overflow: hidden;
-        }
-
-        .has-dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu li {
-            margin: 0;
-            width: 100%;
-        }
-
-        .dropdown-menu a {
-            padding: 12px 15px;
-            display: flex;
-            align-items: center;
-            border-radius: 6px;
-            margin: 3px 0;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-menu a:hover {
-            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 184, 148, 0.1) 100%);
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-
-        .has-dropdown > a::after {
-            content: "\f078";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            margin-left: 6px;
-            font-size: 0.7rem;
-            transition: var(--transition);
-        }
-
-        .has-dropdown:hover > a::after {
-            transform: rotate(180deg);
-        }
-
-        /* CTA Button */
-        .nav-cta {
-            margin-left: 20px;
-        }
-
-        .nav-cta a {
-            background: linear-gradient(135deg, var(--accent) 0%, #00a085 100%);
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-cta a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: 0.5s;
-        }
-
-        .nav-cta a:hover::before {
-            left: 100%;
-        }
-
-        .nav-cta a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4);
-            background: linear-gradient(135deg, #00a085 0%, var(--accent) 100%);
-        }
-
-        .nav-cta a i {
-            margin-right: 8px;
-        }
-
-        /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
+            background: none;
             border: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
+            color: var(--primary);
             cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            z-index: 1001;
-            box-shadow: 0 4px 12px rgba(10, 61, 98, 0.2);
-        }
-
-        .mobile-menu-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(10, 61, 98, 0.3);
-        }
-
-        /* Header on Scroll - Only shrink effect, no hiding */
-        header.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: 0 5px 20px rgba(10, 61, 98, 0.15);
-            background-color: rgba(255, 255, 255, 0.98);
-            transform: translateY(0) !important; /* Ensure it stays visible */
-        }
-
-        header.scrolled .logo-icon {
-            width: 42px;
-            height: 42px;
-            font-size: 1.3rem;
-        }
-
-        header.scrolled .logo-text h1 {
-            font-size: 1.3rem;
-        }
-
-        /* Nav Overlay for Mobile */
-        .nav-overlay {
-            display: none;
-        }
-
-        /* Scroll Animation Classes */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .fade-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .fade-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scale-up {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .scale-up.visible {
-            opacity: 1;
-            transform: scale(1);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(26, 95, 122, 0.85), rgba(26, 95, 122, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
             padding: 150px 0 100px;
-            margin-top: -80px; /* Offset for fixed header */
-            animation: zoomIn 1.5s ease;
-        }
-
-        @keyframes zoomIn {
-            from { transform: scale(1.1); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
         }
 
         .hero h2 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
             color: white;
-            animation: slideUp 1s ease 0.3s both;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .hero p {
@@ -463,87 +232,57 @@
             max-width: 700px;
             margin: 0 auto 2rem;
             color: white;
-            animation: slideUp 1s ease 0.5s both;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            animation: slideUp 1s ease 0.7s both;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:hover {
-            background-color: #00a085;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 184, 148, 0.3);
         }
 
         /* About Section */
-        .section {
+        .about {
             padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
-            animation: expandWidth 1s ease 0.5s both;
-        }
-
-        @keyframes expandWidth {
-            from { width: 0; }
-            to { width: 80px; }
+            background-color: var(--light);
         }
 
         .about-content {
             display: flex;
             align-items: center;
-            gap: 3rem;
+            gap: 4rem;
         }
 
         .about-text {
             flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .about-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat h4 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat p {
+            color: #666;
+            font-weight: 500;
         }
 
         .about-image {
@@ -551,521 +290,432 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transform: perspective(1000px) rotateY(-10deg);
-            transition: transform 0.5s ease;
-        }
-
-        .about-image:hover {
-            transform: perspective(1000px) rotateY(0deg);
         }
 
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.5s ease;
         }
 
-        .about-image:hover img {
+        /* Schools Section */
+        .schools {
+            padding: 5rem 0;
+        }
+
+        .schools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .school-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .school-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .school-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .school-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .school-card:hover .school-image img {
             transform: scale(1.05);
         }
 
-        /* Sectors Section - BLUE THEME */
-        .sectors {
-            background: linear-gradient(135deg, #0a3d62 0%, #1a4a7a 50%, #0a3d62 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
+        .school-info {
+            padding: 2rem;
         }
 
-        .sectors::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(30, 144, 255, 0.2) 0px, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 184, 148, 0.2) 0px, transparent 50%);
-            z-index: 0;
-            animation: pulseBackground 10s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulseBackground {
-            0% { opacity: 0.5; }
-            100% { opacity: 0.8; }
-        }
-
-        .sectors .section-title h2 {
-            color: white;
-        }
-
-        .sectors .section-title h2::after {
-            background-color: var(--accent);
-        }
-
-        .sectors .section-title p {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .sectors-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .sector-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .sector-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .sector-card:hover::before {
-            left: 100%;
-        }
-
-        .sector-card:hover {
-            transform: translateY(-15px) scale(1.05);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .sector-icon {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            position: relative;
-            z-index: 1;
-            transition: all 0.5s ease;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .sector-card:hover .sector-icon {
-            transform: scale(1.2) rotate(360deg);
-            background: rgba(255, 255, 255, 0.2);
-            border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(0, 184, 148, 0.5);
-        }
-
-        .sector-icon i {
-            font-size: 2.8rem;
-            color: white;
-            transition: all 0.5s ease;
-        }
-
-        .sector-card:hover .sector-icon i {
-            color: var(--accent);
-            text-shadow: 0 0 10px rgba(0, 184, 148, 0.5);
-        }
-
-        .sector-card h3 {
+        .school-info h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-            color: white;
         }
 
-        .sector-card p {
-            position: relative;
-            z-index: 1;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Values Section */
-        .values-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .value-item {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            border-top: 4px solid var(--primary);
-        }
-
-        .value-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .value-item:hover::before {
-            left: 100%;
-        }
-
-        .value-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            border-top-color: var(--accent);
-        }
-
-        .value-item i {
-            font-size: 3rem;
-            color: var(--primary);
+        .school-info p {
+            color: #666;
             margin-bottom: 1.5rem;
-            transition: var(--transition);
         }
 
-        .value-item:hover i {
-            color: var(--accent);
-            transform: scale(1.2);
+        .school-features {
+            list-style: none;
+            margin-top: 1rem;
         }
 
-        /* NEW: Subsidiaries Section - ANIMATED */
-        .subsidiaries {
-            background-color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .subsidiaries::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(30, 144, 255, 0.05) 0px, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(0, 184, 148, 0.05) 0px, transparent 50%);
-            z-index: 0;
-        }
-
-        .subsidiaries-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .subsidiary-card {
-            background-color: var(--light);
-            border-radius: 15px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(10, 61, 98, 0.08);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            border: 2px solid transparent;
-            transform-style: preserve-3d;
-        }
-
-        .subsidiary-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 184, 148, 0.1) 100%);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: 0;
-        }
-
-        .subsidiary-card:hover::before {
-            opacity: 1;
-        }
-
-        .subsidiary-card::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--secondary), var(--accent), var(--secondary));
-            border-radius: 17px;
-            z-index: -1;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .subsidiary-card:hover::after {
-            opacity: 1;
-            animation: rotate 3s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .subsidiary-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(10, 61, 98, 0.15);
-            border-color: transparent;
-        }
-
-        .subsidiary-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        .school-features li {
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
+        }
+
+        .school-features i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        /* SPONSORSHIP SECTION - MAIN FEATURE */
+        .sponsorship {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sponsorship::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%231a5f7a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .sponsorship-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
             position: relative;
             z-index: 1;
-            transition: all 0.5s ease;
-            box-shadow: 0 10px 20px rgba(30, 144, 255, 0.3);
         }
 
-        .subsidiary-card:hover .subsidiary-icon {
-            transform: scale(1.2) rotateY(180deg);
-            box-shadow: 0 15px 30px rgba(30, 144, 255, 0.4);
+        .sponsorship-info {
+            padding: 2rem;
         }
 
-        .subsidiary-icon i {
-            font-size: 2.5rem;
-            color: white;
-            transition: all 0.5s ease;
-        }
-
-        .subsidiary-card:hover .subsidiary-icon i {
-            transform: rotateY(-180deg);
-        }
-
-        .subsidiary-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
+        .sponsorship-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--primary);
         }
 
-        .subsidiary-card p {
+        .sponsorship-info p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .impact-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .impact-stat {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .impact-stat h4 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-stat p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* Sponsorship Form */
+        .sponsorship-form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
             position: relative;
-            z-index: 1;
+            overflow: hidden;
+        }
+
+        .sponsorship-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: #666;
+        }
+
+        .form-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 1rem;
+            background: none;
+            border: none;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
             color: #555;
         }
 
-        /* Global Presence Section */
-        .global-presence {
-            background: linear-gradient(135deg, #0a3d62 0%, #1a4a7a 50%, #0a3d62 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .global-presence::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .form-control {
             width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 15% 85%, rgba(30, 144, 255, 0.15) 0px, transparent 50%),
-                radial-gradient(circle at 85% 15%, rgba(0, 184, 148, 0.15) 0px, transparent 50%);
-            z-index: 0;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
         }
 
-        .global-presence .section-title h2 {
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(87, 204, 153, 0.2);
+        }
+
+        .amount-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .amount-option {
+            padding: 0.8rem;
+            text-align: center;
+            background-color: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .amount-option:hover {
+            background-color: #e9ecef;
+        }
+
+        .amount-option.selected {
+            background-color: var(--secondary);
             color: white;
-            font-size: 2.8rem;
+            border-color: var(--secondary);
         }
 
-        .global-presence .section-title h2::after {
-            background-color: var(--accent);
-            width: 100px;
-            height: 5px;
+        .custom-amount {
+            display: flex;
+            margin-top: 0.5rem;
         }
 
-        .global-presence .section-title p {
-            color: rgba(255, 255, 255, 0.9);
+        .custom-amount span {
+            background-color: #f8f9fa;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            color: #666;
+        }
+
+        .custom-amount input {
+            flex: 1;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .child-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .child-option {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .child-option:hover {
+            border-color: var(--secondary);
+            background-color: rgba(87, 204, 153, 0.05);
+        }
+
+        .child-option.selected {
+            border-color: var(--secondary);
+            background-color: rgba(87, 204, 153, 0.1);
+        }
+
+        .child-option h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .child-option p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .child-option .fee {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .payment-summary {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+
+        .summary-row.total {
+            border-top: 2px solid #ddd;
+            padding-top: 1rem;
+            margin-top: 1rem;
+            font-weight: 700;
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 1rem auto 0;
+            color: var(--primary);
         }
 
-        .global-content {
+        .form-footer {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .form-footer p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .programs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
             display: flex;
             align-items: center;
-            gap: 4rem;
-            position: relative;
-            z-index: 1;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
         }
 
-        .global-text {
-            flex: 1;
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .global-text h3 {
-            color: white;
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .global-text p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .global-map {
-            flex: 1;
-            text-align: center;
-            position: relative;
-        }
-
-        .globe-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .globe-container i {
-            font-size: 12rem;
-            color: rgba(255, 255, 255, 0.8);
-            filter: drop-shadow(0 0 20px rgba(30, 144, 255, 0.3));
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
-        }
-
-        .globe-points {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .globe-point {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 15px var(--accent);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.7; }
-        }
-
-        .globe-point:nth-child(1) { top: 30%; left: 40%; animation-delay: 0s; }
-        .globe-point:nth-child(2) { top: 60%; left: 70%; animation-delay: 0.5s; }
-        .globe-point:nth-child(3) { top: 40%; left: 80%; animation-delay: 1s; }
-        .globe-point:nth-child(4) { top: 70%; left: 30%; animation-delay: 1.5s; }
-        .globe-point:nth-child(5) { top: 20%; left: 60%; animation-delay: 2s; }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1.5rem;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(0, 184, 148, 0.1));
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
-
-        .stat-item:hover::before {
-            opacity: 1;
-        }
-
-        .stat-item h3 {
-            font-size: 3rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            position: relative;
-            text-shadow: 0 0 10px rgba(0, 184, 148, 0.3);
-        }
-
-        .stat-item p {
-            color: white;
-            margin-bottom: 0;
-            font-weight: 500;
-            font-size: 1.1rem;
-            position: relative;
-        }
-
-        .global-map h3 {
-            color: white;
-            font-size: 1.8rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .global-map p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.1rem;
+        .program-card p {
+            color: #666;
         }
 
         /* Footer */
@@ -1082,24 +732,51 @@
             margin-bottom: 2rem;
         }
 
-        .footer-logo {
+        .footer-logo h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo p {
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 1.5rem;
         }
 
-        .footer-logo h3 {
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
         }
 
         .footer-links h4, .footer-contact h4 {
             color: white;
             margin-bottom: 1.5rem;
             position: relative;
+            padding-bottom: 10px;
         }
 
         .footer-links h4::after, .footer-contact h4::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: 0;
             left: 0;
             width: 40px;
             height: 3px;
@@ -1115,7 +792,7 @@
         }
 
         .footer-links ul li a {
-            color: #ddd;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: var(--transition);
         }
@@ -1129,6 +806,7 @@
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .footer-contact i {
@@ -1140,143 +818,83 @@
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
         }
 
-        .acronym {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 1rem;
+        /* Modal for Success Message */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: modalAppear 0.3s ease;
+        }
+
+        @keyframes modalAppear {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .modal h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #999;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
         }
 
         /* Responsive Styles */
-        @media (max-width: 1100px) {
-            nav ul {
-                gap: 5px;
-            }
-            
-            nav ul li a {
-                padding: 0.8rem 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .nav-cta a {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-        }
-
         @media (max-width: 992px) {
-            .mobile-menu-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            nav ul {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 300px;
-                height: 100vh;
-                background-color: white;
-                flex-direction: column;
-                padding: 100px 30px 30px;
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-                transition: var(--transition);
-                z-index: 999;
-                gap: 0;
-            }
-            
-            nav ul.active {
-                right: 0;
-            }
-            
-            nav ul li {
-                width: 100%;
-                margin: 0;
-            }
-            
-            nav ul li a {
-                padding: 1rem 1.2rem;
-                border-radius: 8px;
-                margin: 5px 0;
-                justify-content: flex-start;
-                font-size: 1rem;
-            }
-            
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                background-color: rgba(10, 61, 98, 0.05);
-                min-width: 100%;
-                max-height: 0;
-                overflow: hidden;
-                padding: 0;
-                transition: max-height 0.3s ease;
-                border: none;
-                border-radius: 8px;
-                margin-top: 5px;
-            }
-            
-            .dropdown-menu.active {
-                max-height: 500px;
-                padding: 10px;
-                margin-bottom: 10px;
-            }
-            
-            .has-dropdown.active .dropdown-menu {
-                max-height: 500px;
-                padding: 10px;
-                margin-bottom: 10px;
-            }
-            
-            .has-dropdown > a::after {
-                margin-left: auto;
-                transition: transform 0.3s ease;
-            }
-            
-            .has-dropdown.active > a::after {
-                transform: rotate(180deg);
-            }
-            
-            .nav-cta {
-                margin-left: 0;
-                margin-top: 20px;
-                width: 100%;
-            }
-            
-            .nav-cta a {
-                justify-content: center;
-                padding: 1rem 2rem;
-                font-size: 1rem;
-            }
-            
-            /* Overlay */
-            .nav-overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                z-index: 998;
-                opacity: 0;
-                visibility: hidden;
-                transition: var(--transition);
-                display: block;
-            }
-            
-            .nav-overlay.active {
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .about-content, .global-content {
+            .about-content {
                 flex-direction: column;
             }
             
@@ -1284,150 +902,104 @@
                 font-size: 2.5rem;
             }
             
-            .global-map i {
-                font-size: 10rem;
+            .sponsorship-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
             }
         }
 
         @media (max-width: 768px) {
-            nav ul {
-                width: 280px;
-            }
-
             .hero h2 {
                 font-size: 2rem;
             }
-
+            
             .hero p {
                 font-size: 1rem;
-            }
-            
-            .globe-container i {
-                font-size: 8rem;
-            }
-            
-            .stat-item h3 {
-                font-size: 2.5rem;
-            }
-            
-            .sector-card, .value-item, .subsidiary-card {
-                padding: 2rem 1.5rem;
-            }
-            
-            .sector-icon, .subsidiary-icon {
-                width: 70px;
-                height: 70px;
-            }
-            
-            .sector-icon i, .subsidiary-icon i {
-                font-size: 2.2rem;
             }
             
             .section-title h2 {
                 font-size: 2rem;
             }
             
-            .global-presence .section-title h2 {
-                font-size: 2.2rem;
+            .sponsorship-form-container {
+                padding: 1.5rem;
+            }
+            
+            .impact-stats {
+                justify-content: center;
+            }
+            
+            .about-stats {
+                justify-content: center;
             }
         }
 
         @media (max-width: 480px) {
             .hero {
-                padding: 100px 0 60px;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
+                padding: 120px 0 80px;
             }
             
             .btn {
                 padding: 0.7rem 1.5rem;
             }
             
-            .sector-card, .value-item, .subsidiary-card {
-                padding: 1.5rem 1rem;
+            .stat, .impact-stat {
+                min-width: 120px;
             }
             
-            .sectors-container, .values-container, .subsidiaries-container {
+            .child-selection {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            
-            .stat-item {
-                padding: 1.5rem 1rem;
-            }
-            
-            .stat-item h3 {
-                font-size: 2rem;
-            }
-            
-            .global-map i {
-                font-size: 6rem;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.2rem;
-            }
-            
-            .logo-text span {
-                font-size: 0.7rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- STATIONARY HEADER -->
-    <header id="mainHeader">
+    <!-- Header -->
+    <header>
         <div class="container">
             <div class="header-content">
-                <a href="#home" class="logo">
-                    <div class="logo-container">
-                        <div class="logo-icon">MGL</div>
-                        <div class="logo-text">
-                            <h1>Mitekaro Group</h1>
-                            <span>Multisector Solutions Provider</span>
-                        </div>
+                <a href="#" class="logo">
+                    <div class="logo-icon">TMS</div>
+                    <div class="logo-text">
+                        <h1>Twing Memorial Schools</h1>
+                        <span>High School & Elementary</span>
                     </div>
                 </a>
-                
-                <div class="nav-overlay" id="navOverlay"></div>
-                
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
-                
                 <nav>
                     <ul id="navMenu">
-                        <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                        <li class="has-dropdown about-dropdown">
-                            <a href="#about"><i class="fas fa-building"></i> About</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#about"><i class="fas fa-info-circle"></i> Company Overview</a></li>
-                                <li><a href="#values"><i class="fas fa-star"></i> Our Values</a></li>
-                                <li><a href="#global"><i class="fas fa-globe"></i> Global Presence</a></li>
-                                <li><a href="#leadership"><i class="fas fa-users"></i> Leadership Team</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-dropdown">
-                            <a href="#sectors"><i class="fas fa-industry"></i> Sectors</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"><i class="fas fa-microchip"></i> Technology</a></li>
-                                <li><a href="#"><i class="fas fa-seedling"></i> Agriculture</a></li>
-                                <li><a href="#"><i class="fas fa-shipping-fast"></i> Transport</a></li>
-                                <li><a href="#"><i class="fas fa-heartbeat"></i> Health</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#subsidiaries"><i class="fas fa-network-wired"></i> Subsidiaries</a></li>
-                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                        <li class="nav-cta">
-                            <a href="#contact"><i class="fas fa-paper-plane"></i> Get In Touch</a>
-                        </li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#schools">Our Schools</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#sponsorship" class="active">Sponsor a Child</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -1437,196 +1009,327 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h2 class="fade-up">Innovating Across Industries</h2>
-            <p class="fade-up" style="animation-delay: 0.2s">Mitekaro Group Company (MGL) is a diversified multinational corporation providing integrated solutions across technology, agriculture, transport, and healthcare sectors. Our unified approach creates synergies that drive progress and sustainable growth.</p>
-            <a href="#about" class="btn fade-up" style="animation-delay: 0.4s">Discover Our Vision</a>
+            <h2>Empowering Minds, Building Futures</h2>
+            <p>Twing Memorial Schools provides quality education for elementary and high school students, fostering academic excellence and character development since 1985.</p>
+            <a href="#sponsorship" class="btn btn-accent">Sponsor a Child's Education</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="section" id="about">
+    <section class="about" id="about">
         <div class="container">
             <div class="section-title">
-                <h2 class="fade-up">About MGL</h2>
-                <p class="fade-up" style="animation-delay: 0.1s; max-width: 800px; margin: 0 auto;">Learn about our journey, mission, and the principles that guide our success</p>
+                <h2>About Our Institution</h2>
+                <p>With over 35 years of educational excellence, Twing Memorial Schools has been a pillar of quality education in our community.</p>
             </div>
             <div class="about-content">
-                <div class="about-text fade-left">
-                    <h3>Mitekaro Group Company</h3>
-                    <p>Founded on the principles of innovation and sustainable development, Mitekaro Group Company (MGL) operates across four key sectors that are essential to modern society. Our integrated approach allows us to create synergies between technology, agriculture, transport, and health, delivering comprehensive solutions that drive progress.</p>
-                    <p>With operations spanning multiple continents, MGL combines local expertise with global insights to address complex challenges. Our commitment to excellence and ethical practices has made us a trusted partner for governments, businesses, and communities worldwide.</p>
-                    <div class="acronym">
-                        <h4>MGL Acronym</h4>
-                        <p><strong>M</strong> - Multisector Innovation</p>
-                        <p><strong>G</strong> - Global Integration</p>
-                        <p><strong>L</strong> - Local Impact</p>
-                    </div>
-                </div>
-                <div class="about-image fade-right">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="MGL Corporate Office">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sectors Section - BLUE THEME -->
-    <section class="section sectors" id="sectors">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="fade-up">Our Core Sectors</h2>
-                <p class="fade-up" style="animation-delay: 0.1s; max-width: 800px; margin: 0 auto;">Driving innovation and excellence across four essential industries</p>
-            </div>
-            <div class="sectors-container">
-                <div class="sector-card fade-up" style="animation-delay: 0.1s">
-                    <div class="sector-icon">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <h3>Technology</h3>
-                    <p>Developing cutting-edge solutions in AI, IoT, cybersecurity, and digital transformation to power the future of industries.</p>
-                </div>
-                <div class="sector-card fade-up" style="animation-delay: 0.2s">
-                    <div class="sector-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>Agriculture</h3>
-                    <p>Implementing sustainable farming techniques, precision agriculture, and supply chain innovations to ensure food security.</p>
-                </div>
-                <div class="sector-card fade-up" style="animation-delay: 0.3s">
-                    <div class="sector-icon">
-                        <i class="fas fa-shipping-fast"></i>
-                    </div>
-                    <h3>Transport</h3>
-                    <p>Revolutionizing logistics with smart mobility solutions, efficient supply chains, and sustainable transport systems.</p>
-                </div>
-                <div class="sector-card fade-up" style="animation-delay: 0.4s">
-                    <div class="sector-icon">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <h3>Health</h3>
-                    <p>Advancing healthcare through medical technology, pharmaceutical research, and accessible health services.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Subsidiaries Section - ANIMATED -->
-    <section class="section subsidiaries" id="subsidiaries">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="fade-up">Our Subsidiaries</h2>
-                <p class="fade-up" style="animation-delay: 0.1s">MGL operates through specialized subsidiaries that focus on specific market segments</p>
-            </div>
-            <div class="subsidiaries-container">
-                <div class="subsidiary-card fade-up" style="animation-delay: 0.1s">
-                    <div class="subsidiary-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>MavunoTrade</h3>
-                    <p>Agricultural trading and commodity exchange platform connecting farmers directly to global markets with fair pricing and sustainable practices.</p>
-                </div>
-                <div class="subsidiary-card fade-up" style="animation-delay: 0.2s">
-                    <div class="subsidiary-icon">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <h3>Spero Therapy</h3>
-                    <p>Mental health and wellness services providing counseling, therapy, and holistic well-being programs for individuals and organizations.</p>
-                </div>
-                <div class="subsidiary-card fade-up" style="animation-delay: 0.3s">
-                    <div class="subsidiary-icon">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <h3>Mitekaro Tech Inc</h3>
-                    <p>Technology solutions provider specializing in enterprise software, AI integration, and digital transformation services for businesses.</p>
-                </div>
-                <div class="subsidiary-card fade-up" style="animation-delay: 0.4s">
-                    <div class="subsidiary-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h3>MITE Transport</h3>
-                    <p>Comprehensive logistics and transportation services including freight, warehousing, and supply chain optimization solutions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Global Presence Section -->
-    <section class="section global-presence" id="global">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="fade-up">Global Presence & Impact</h2>
-                <p class="fade-up" style="animation-delay: 0.1s">Expanding horizons and creating value across the world</p>
-            </div>
-            <div class="global-content">
-                <div class="global-text fade-left">
-                    <h3>Operating Across Continents</h3>
-                    <p>MGL has established a significant global footprint with operations in key markets worldwide. Our international presence allows us to leverage local insights while maintaining global standards of excellence.</p>
-                    <p>We've successfully delivered projects in over 15 countries across North America, Europe, Africa, and Asia, adapting our solutions to meet diverse cultural and regulatory requirements while maintaining our commitment to quality and innovation.</p>
-                    <p>Our cross-sector integration model allows us to deploy resources efficiently across borders, creating value for stakeholders worldwide while contributing to sustainable development goals in each region we operate.</p>
+                <div class="about-text">
+                    <h3>Our Mission & Vision</h3>
+                    <p>Founded in 1985 in memory of Dr. Jonathan Twing, our school is dedicated to providing accessible, quality education that nurtures both academic excellence and strong moral character.</p>
+                    <p>We believe every child deserves the opportunity to learn, grow, and reach their full potential regardless of their family's financial situation.</p>
+                    <p>Our holistic approach to education combines rigorous academics with character development, sports, arts, and community service.</p>
                     
-                    <div class="stats-grid">
-                        <div class="stat-item fade-up" style="animation-delay: 0.1s">
-                            <h3>15+</h3>
-                            <p>Countries</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h4>35+</h4>
+                            <p>Years of Excellence</p>
                         </div>
-                        <div class="stat-item fade-up" style="animation-delay: 0.2s">
-                            <h3>2,500+</h3>
-                            <p>Employees</p>
+                        <div class="stat">
+                            <h4>2,500+</h4>
+                            <p>Students Educated</p>
                         </div>
-                        <div class="stat-item fade-up" style="animation-delay: 0.3s">
-                            <h3>100+</h3>
-                            <p>Partners</p>
+                        <div class="stat">
+                            <h4>98%</h4>
+                            <p>Graduation Rate</p>
                         </div>
-                        <div class="stat-item fade-up" style="animation-delay: 0.4s">
-                            <h3>12</h3>
-                            <p>Years</p>
+                        <div class="stat">
+                            <h4>120+</h4>
+                            <p>Dedicated Staff</p>
                         </div>
                     </div>
                 </div>
-                <div class="global-map fade-right">
-                    <div class="globe-container">
-                        <i class="fas fa-globe-americas"></i>
-                        <div class="globe-points">
-                            <div class="globe-point"></div>
-                            <div class="globe-point"></div>
-                            <div class="globe-point"></div>
-                            <div class="globe-point"></div>
-                            <div class="globe-point"></div>
-                        </div>
-                    </div>
-                    <h3>Worldwide Operations</h3>
-                    <p>Strategic presence across four continents</p>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Twing Memorial School Campus">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section class="section" id="values">
+    <!-- Schools Section -->
+    <section class="schools" id="schools">
         <div class="container">
             <div class="section-title">
-                <h2 class="fade-up">Our Core Values</h2>
-                <p class="fade-up" style="animation-delay: 0.1s">The principles that guide everything we do</p>
+                <h2>Our Schools</h2>
+                <p>Two distinct campuses tailored to different age groups, each with specialized facilities and programs.</p>
             </div>
-            <div class="values-container">
-                <div class="value-item fade-up" style="animation-delay: 0.1s">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Innovation</h3>
-                    <p>We constantly seek creative solutions and embrace emerging technologies to stay ahead of industry trends.</p>
+            <div class="schools-container">
+                <div class="school-card">
+                    <div class="school-image">
+                        <img src="https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Twing Elementary School">
+                    </div>
+                    <div class="school-info">
+                        <h3>Twing Memorial Elementary School</h3>
+                        <p>Grades 1-6: Building strong foundations in literacy, numeracy, and social skills in a nurturing environment.</p>
+                        <ul class="school-features">
+                            <li><i class="fas fa-check-circle"></i> Age-appropriate learning facilities</li>
+                            <li><i class="fas fa-check-circle"></i> Specialized early childhood educators</li>
+                            <li><i class="fas fa-check-circle"></i> After-school care program</li>
+                            <li><i class="fas fa-check-circle"></i> Music, art, and physical education</li>
+                        </ul>
+                        <a href="#sponsorship" class="btn" style="margin-top: 1rem;">Sponsor an Elementary Student</a>
+                    </div>
                 </div>
-                <div class="value-item fade-up" style="animation-delay: 0.2s">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Integrity</h3>
-                    <p>We conduct business with transparency, honesty, and respect for all stakeholders and communities we serve.</p>
+                <div class="school-card">
+                    <div class="school-image">
+                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Twing High School">
+                    </div>
+                    <div class="school-info">
+                        <h3>Twing Memorial High School</h3>
+                        <p>Grades 7-12: Preparing students for college and career with advanced academics and extracurricular opportunities.</p>
+                        <ul class="school-features">
+                            <li><i class="fas fa-check-circle"></i> College preparatory curriculum</li>
+                            <li><i class="fas fa-check-circle"></i> STEM laboratory facilities</li>
+                            <li><i class="fas fa-check-circle"></i> Sports and athletic programs</li>
+                            <li><i class="fas fa-check-circle"></i> Career guidance and counseling</li>
+                        </ul>
+                        <a href="#sponsorship" class="btn btn-primary" style="margin-top: 1rem;">Sponsor a High School Student</a>
+                    </div>
                 </div>
-                <div class="value-item fade-up" style="animation-delay: 0.3s">
-                    <i class="fas fa-leaf"></i>
-                    <h3>Sustainability</h3>
-                    <p>We are committed to environmentally responsible practices that ensure long-term viability for future generations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPONSORSHIP SECTION - MAIN FEATURE -->
+    <section class="sponsorship" id="sponsorship">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sponsor a Child's Education</h2>
+                <p>Change a life through education. Sponsor a child's school fees or make a donation to support our educational programs.</p>
+            </div>
+            <div class="sponsorship-container">
+                <div class="sponsorship-info">
+                    <h3>Your Support Makes Education Possible</h3>
+                    <p>Many bright and deserving children in our community cannot afford quality education. Through your sponsorship, you can cover school fees, uniforms, books, and meals for a child in need.</p>
+                    <p>Your contribution not only pays for education but also provides hope, opportunity, and a pathway out of poverty. Sponsors receive updates on their sponsored child's progress and can correspond with them.</p>
+                    
+                    <div class="impact-stats">
+                        <div class="impact-stat">
+                            <h4>247</h4>
+                            <p>Children Sponsored</p>
+                        </div>
+                        <div class="impact-stat">
+                            <h4>93%</h4>
+                            <p>Graduation Rate for Sponsored Students</p>
+                        </div>
+                        <div class="impact-stat">
+                            <h4>$85K</h4>
+                            <p>Raised This Year</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>What Sponsorship Covers:</h4>
+                        <ul style="list-style: none; margin-top: 1rem;">
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Full annual school tuition and fees</li>
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> School uniforms and supplies</li>
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Textbooks and learning materials</li>
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Daily nutritious lunch</li>
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Extracurricular activity fees</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="value-item fade-up" style="animation-delay: 0.4s">
-                    <i class="fas fa-users"></i>
-                    <h3>Collaboration</h3>
-                    <p>We believe in the power of partnerships and teamwork to achieve greater impact across all sectors.</p>
+                
+                <!-- Sponsorship Form -->
+                <div class="sponsorship-form-container">
+                    <div class="form-header">
+                        <h3>Make a Difference Today</h3>
+                        <p>Choose how you'd like to support our students</p>
+                    </div>
+                    
+                    <div class="form-tabs">
+                        <button class="tab-btn active" data-tab="sponsor">Sponsor a Child</button>
+                        <button class="tab-btn" data-tab="donate">Make a Donation</button>
+                    </div>
+                    
+                    <!-- Sponsor a Child Form -->
+                    <div class="tab-content active" id="sponsor-form">
+                        <form id="sponsorshipForm">
+                            <div class="form-group">
+                                <label for="sponsor-name">Your Name</label>
+                                <input type="text" id="sponsor-name" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="sponsor-email">Email Address</label>
+                                <input type="email" id="sponsor-email" class="form-control" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Select a Child to Sponsor</label>
+                                <div class="child-selection">
+                                    <div class="child-option" data-child="mary">
+                                        <h4>Mary, Age 8</h4>
+                                        <p>Grade 3, Elementary School</p>
+                                        <p class="fee">$850/year</p>
+                                        <p><small>Excels in mathematics</small></p>
+                                    </div>
+                                    <div class="child-option" data-child="john">
+                                        <h4>John, Age 14</h4>
+                                        <p>Grade 9, High School</p>
+                                        <p class="fee">$1,250/year</p>
+                                        <p><small>Interested in science</small></p>
+                                    </div>
+                                    <div class="child-option" data-child="random">
+                                        <h4>Any Child in Need</h4>
+                                        <p>We'll match you with a child</p>
+                                        <p class="fee">$1,000/year</p>
+                                        <p><small>Average sponsorship cost</small></p>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="selected-child" value="">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Sponsorship Duration</label>
+                                <select id="sponsor-duration" class="form-control">
+                                    <option value="1">One Year - $850-$1,250</option>
+                                    <option value="2">Two Years - $1,700-$2,500</option>
+                                    <option value="until">Until Graduation (Variable)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="payment-summary">
+                                <h4>Payment Summary</h4>
+                                <div class="summary-row">
+                                    <span>Sponsorship Fee:</span>
+                                    <span id="fee-amount">$0</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Processing Fee:</span>
+                                    <span>$25</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total Amount:</span>
+                                    <span id="total-amount">$0</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-accent" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                                    <i class="fas fa-heart"></i> Sponsor Now
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Donation Form -->
+                    <div class="tab-content" id="donate-form">
+                        <form id="donationForm">
+                            <div class="form-group">
+                                <label for="donor-name">Your Name</label>
+                                <input type="text" id="donor-name" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="donor-email">Email Address</label>
+                                <input type="email" id="donor-email" class="form-control" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Donation Amount</label>
+                                <div class="amount-options">
+                                    <div class="amount-option" data-amount="25">$25</div>
+                                    <div class="amount-option" data-amount="50">$50</div>
+                                    <div class="amount-option" data-amount="100">$100</div>
+                                    <div class="amount-option" data-amount="250">$250</div>
+                                    <div class="amount-option selected" data-amount="500">$500</div>
+                                </div>
+                                <div class="custom-amount">
+                                    <span>$</span>
+                                    <input type="number" id="custom-amount" class="form-control" placeholder="Other amount" min="1">
+                                </div>
+                                <input type="hidden" id="donation-amount" value="500">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Donation Purpose (Optional)</label>
+                                <select id="donation-purpose" class="form-control">
+                                    <option value="general">General School Fund</option>
+                                    <option value="scholarship">Scholarship Fund</option>
+                                    <option value="facilities">Facilities Improvement</option>
+                                    <option value="library">Library Resources</option>
+                                    <option value="sports">Sports Equipment</option>
+                                </select>
+                            </div>
+                            
+                            <div class="payment-summary">
+                                <h4>Donation Summary</h4>
+                                <div class="summary-row">
+                                    <span>Donation Amount:</span>
+                                    <span id="donation-summary">$500</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Processing Fee:</span>
+                                    <span>$0</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total Amount:</span>
+                                    <span id="donation-total">$500</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                                    <i class="fas fa-hand-holding-heart"></i> Donate Now
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <p><i class="fas fa-lock"></i> All payments are secure and encrypted</p>
+                        <p><i class="fas fa-receipt"></i> You will receive a tax-deductible receipt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
+                <p>Comprehensive educational programs designed to develop well-rounded individuals</p>
+            </div>
+            <div class="programs-container">
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>STEM Program</h3>
+                    <p>Science, Technology, Engineering, and Mathematics curriculum with hands-on laboratory experiences.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Arts & Creativity</h3>
+                    <p>Visual arts, music, drama, and creative writing programs to nurture artistic expression.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3>Athletics</h3>
+                    <p>Competitive sports teams and physical education promoting health and teamwork.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Service</h3>
+                    <p>Service-learning projects that connect classroom learning with community needs.</p>
                 </div>
             </div>
         </div>
@@ -1636,228 +1339,276 @@
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-about fade-up">
-                    <div class="footer-logo">
-                        <h3>Mitekaro Group Company</h3>
-                        <p>Integrated Solutions Across Sectors</p>
+                <div class="footer-logo">
+                    <h3>Twing Memorial Schools</h3>
+                    <p>Providing quality education since 1985. High School & Elementary campuses.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
-                    <p>MGL is dedicated to creating a better future through innovation in technology, agriculture, transport, and health.</p>
                 </div>
-                <div class="footer-links fade-up" style="animation-delay: 0.1s">
+                <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#sectors">Our Sectors</a></li>
-                        <li><a href="#subsidiaries">Subsidiaries</a></li>
-                        <li><a href="#values">Our Values</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#schools">Our Schools</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#sponsorship">Sponsor a Child</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact fade-up" style="animation-delay: 0.2s">
+                <div class="footer-contact">
                     <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Innovation Drive, Tech City, TC 10001</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Education Avenue, Academic City, AC 10001</p>
                     <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    <p><i class="fas fa-envelope"></i> info@mitekaro-group.com</p>
-                    <p><i class="fas fa-globe"></i> www.mitekaro-group.com</p>
+                    <p><i class="fas fa-envelope"></i> info@twingmemorial.edu</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
                 </div>
             </div>
-            <div class="copyright fade-up" style="animation-delay: 0.3s">
-                <p>&copy; 2023 Mitekaro Group Company (MGL). All rights reserved.</p>
+            <div class="copyright">
+                <p>&copy; 2023 Twing Memorial Schools. All rights reserved. | Non-Profit Registration #123-456-789</p>
             </div>
         </div>
     </footer>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="modal-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h3>Thank You for Your Generosity!</h3>
+            <p id="modal-message">Your sponsorship/donation has been received successfully. You will receive a confirmation email shortly with further details.</p>
+            <p>Your support is transforming a child's life through education.</p>
+            <button class="btn btn-accent" id="modalOkBtn" style="margin-top: 1.5rem;">Continue</button>
+        </div>
+    </div>
 
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
-        const navOverlay = document.getElementById('navOverlay');
         
         mobileMenuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            navOverlay.classList.toggle('active');
             mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
         
-        // Close menu when clicking overlay
-        navOverlay.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navOverlay.classList.remove('active');
-            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            // Close all dropdowns
-            document.querySelectorAll('.has-dropdown').forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
-        });
-        
-        // Mobile dropdown functionality
-        const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
-        dropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
-                if (window.innerWidth <= 992) {
-                    e.preventDefault();
-                    const dropdown = toggle.parentElement;
-                    dropdown.classList.toggle('active');
-                }
-            });
-        });
-        
         // Close menu when clicking a link
-        const navLinks = document.querySelectorAll('nav ul li a:not(.has-dropdown > a)');
+        const navLinks = document.querySelectorAll('nav ul li a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 992) {
                     navMenu.classList.remove('active');
-                    navOverlay.classList.remove('active');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    
-                    // Close all dropdowns
-                    document.querySelectorAll('.has-dropdown').forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
                 }
-                
-                // Update active link
-                document.querySelectorAll('nav ul li a').forEach(item => {
-                    item.classList.remove('active');
-                });
-                link.classList.add('active');
             });
-        });
-        
-        // Header scroll effect - ONLY SHRINK, NO HIDING
-        const header = document.getElementById('mainHeader');
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            // Add/remove scrolled class based on scroll position for shrink effect
-            if (currentScroll > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            // REMOVED: No hiding/showing of header on scroll
-            // Header will stay visible at all times
         });
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
                 const targetId = this.getAttribute('href');
                 if(targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
-                    e.preventDefault();
-                    
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
-                    // Update active link
-                    if (!this.parentElement.classList.contains('has-dropdown')) {
-                        document.querySelectorAll('nav ul li a').forEach(item => {
-                            item.classList.remove('active');
-                        });
-                        this.classList.add('active');
-                    }
                 }
             });
         });
         
-        // Set active link based on scroll position
-        const sections = document.querySelectorAll('section[id]');
+        // Form Tab Switching
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
         
-        function setActiveLink() {
-            const scrollPosition = window.scrollY + 100;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                const sectionId = section.getAttribute('id');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
                 
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    document.querySelectorAll('nav ul li a').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
+                // Remove active class from all tabs and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                btn.classList.add('active');
+                document.getElementById(`${tabId}-form`).classList.add('active');
             });
-        }
+        });
         
-        window.addEventListener('scroll', setActiveLink);
+        // Child Selection
+        const childOptions = document.querySelectorAll('.child-option');
+        const selectedChildInput = document.getElementById('selected-child');
+        const feeAmountElement = document.getElementById('fee-amount');
+        const totalAmountElement = document.getElementById('total-amount');
         
-        // Scroll animation for elements
-        const animatedElements = document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-up');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+        childOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                childOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                // Update hidden input value
+                const child = option.getAttribute('data-child');
+                selectedChildInput.value = child;
+                
+                // Update fee amount based on selection
+                let fee = 0;
+                if (child === 'mary') fee = 850;
+                else if (child === 'john') fee = 1250;
+                else fee = 1000;
+                
+                feeAmountElement.textContent = `$${fee}`;
+                totalAmountElement.textContent = `$${fee + 25}`;
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
         });
         
-        animatedElements.forEach(element => {
-            observer.observe(element);
+        // Set default selection
+        childOptions[0].click();
+        
+        // Donation Amount Selection
+        const amountOptions = document.querySelectorAll('.amount-option');
+        const donationAmountInput = document.getElementById('donation-amount');
+        const customAmountInput = document.getElementById('custom-amount');
+        const donationSummaryElement = document.getElementById('donation-summary');
+        const donationTotalElement = document.getElementById('donation-total');
+        
+        amountOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                amountOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                // Update donation amount
+                const amount = option.getAttribute('data-amount');
+                donationAmountInput.value = amount;
+                donationSummaryElement.textContent = `$${amount}`;
+                donationTotalElement.textContent = `$${amount}`;
+                
+                // Clear custom amount
+                customAmountInput.value = '';
+            });
         });
         
-        // Add scroll animation to section titles
-        const sectionTitles = document.querySelectorAll('.section-title');
-        sectionTitles.forEach(title => {
-            title.classList.add('fade-up');
-            observer.observe(title);
+        // Custom donation amount
+        customAmountInput.addEventListener('input', () => {
+            const customAmount = parseInt(customAmountInput.value) || 0;
+            
+            if (customAmount > 0) {
+                // Remove selected class from preset options
+                amountOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Update donation amount
+                donationAmountInput.value = customAmount;
+                donationSummaryElement.textContent = `$${customAmount}`;
+                donationTotalElement.textContent = `$${customAmount}`;
+            }
         });
         
-        // Add scroll animation to about content
-        const aboutText = document.querySelector('.about-text');
-        const aboutImage = document.querySelector('.about-image');
-        if (aboutText) aboutText.classList.add('fade-left');
-        if (aboutImage) aboutImage.classList.add('fade-right');
-        
-        // Add scroll animation to global content
-        const globalText = document.querySelector('.global-text');
-        const globalMap = document.querySelector('.global-map');
-        if (globalText) globalText.classList.add('fade-left');
-        if (globalMap) globalMap.classList.add('fade-right');
-        
-        // Add scroll animation to sector cards
-        const sectorCards = document.querySelectorAll('.sector-card');
-        sectorCards.forEach((card, index) => {
-            card.classList.add('fade-up');
-            card.style.animationDelay = `${(index + 1) * 0.1}s`;
+        // Sponsorship Duration Change
+        const durationSelect = document.getElementById('sponsor-duration');
+        durationSelect.addEventListener('change', () => {
+            const selectedChild = selectedChildInput.value;
+            let fee = 0;
+            
+            if (selectedChild === 'mary') fee = 850;
+            else if (selectedChild === 'john') fee = 1250;
+            else fee = 1000;
+            
+            const duration = parseInt(durationSelect.value);
+            let totalFee = fee * duration;
+            
+            // For "until graduation" option
+            if (isNaN(duration)) {
+                totalFee = fee * 4; // Assume average of 4 years
+            }
+            
+            feeAmountElement.textContent = `$${totalFee}`;
+            totalAmountElement.textContent = `$${totalFee + 25}`;
         });
         
-        // Add scroll animation to subsidiary cards
-        const subsidiaryCards = document.querySelectorAll('.subsidiary-card');
-        subsidiaryCards.forEach((card, index) => {
-            card.classList.add('fade-up');
-            card.style.animationDelay = `${(index + 1) * 0.1}s`;
+        // Modal Elements
+        const successModal = document.getElementById('successModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalOkBtn = document.getElementById('modalOkBtn');
+        const modalMessage = document.getElementById('modal-message');
+        
+        // Close modal functions
+        closeModalBtn.addEventListener('click', () => {
+            successModal.style.display = 'none';
         });
         
-        // Add scroll animation to value items
-        const valueItems = document.querySelectorAll('.value-item');
-        valueItems.forEach((item, index) => {
-            item.classList.add('fade-up');
-            item.style.animationDelay = `${(index + 1) * 0.1}s`;
+        modalOkBtn.addEventListener('click', () => {
+            successModal.style.display = 'none';
         });
         
-        // Add scroll animation to stat items
-        const statItems = document.querySelectorAll('.stat-item');
-        statItems.forEach((item, index) => {
-            item.classList.add('fade-up');
-            item.style.animationDelay = `${(index + 1) * 0.1}s`;
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === successModal) {
+                successModal.style.display = 'none';
+            }
+        });
+        
+        // Sponsorship Form Submission
+        const sponsorshipForm = document.getElementById('sponsorshipForm');
+        sponsorshipForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const sponsorName = document.getElementById('sponsor-name').value;
+            const selectedChild = selectedChildInput.value;
+            
+            // In a real application, you would submit to a server here
+            // For demo purposes, we'll just show a success message
+            modalMessage.textContent = `Thank you, ${sponsorName}! Your sponsorship for ${selectedChild === 'mary' ? 'Mary' : selectedChild === 'john' ? 'John' : 'a child in need'} has been processed successfully. You will receive a confirmation email with further details.`;
+            successModal.style.display = 'flex';
+            
+            // Reset form (in a real app, you might not want to reset until payment is confirmed)
+            sponsorshipForm.reset();
+            childOptions[0].click();
+        });
+        
+        // Donation Form Submission
+        const donationForm = document.getElementById('donationForm');
+        donationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const donorName = document.getElementById('donor-name').value;
+            const donationAmount = donationAmountInput.value;
+            const purpose = document.getElementById('donation-purpose').value;
+            
+            // In a real application, you would submit to a server here
+            // For demo purposes, we'll just show a success message
+            modalMessage.textContent = `Thank you, ${donorName}! Your donation of $${donationAmount} to the ${purpose} fund has been received. You will receive a tax receipt via email.`;
+            successModal.style.display = 'flex';
+            
+            // Reset form (in a real app, you might not want to reset until payment is confirmed)
+            donationForm.reset();
+            amountOptions[4].click();
+        });
+        
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.08)';
+            }
         });
     </script>
 </body>
