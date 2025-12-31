@@ -29,7 +29,7 @@
             color: #333;
             background-color: #f9f9f9;
             overflow-x: hidden;
-            padding-top: 80px; /* Add padding to account for fixed header */
+            padding-top: 80px; /* Added for fixed header */
         }
 
         h1, h2, h3, h4, h5 {
@@ -46,7 +46,7 @@
             padding: 0 15px;
         }
 
-        /* NEW HEADER STYLES */
+        /* NEW MODERN HEADER STYLES */
         header {
             background-color: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -378,6 +378,11 @@
             font-size: 1.3rem;
         }
 
+        /* Nav Overlay for Mobile */
+        .nav-overlay {
+            display: none;
+        }
+
         /* Scroll Animation Classes */
         .fade-up {
             opacity: 0;
@@ -390,6 +395,39 @@
             transform: translateY(0);
         }
 
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-up {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scale-up.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
@@ -398,7 +436,7 @@
             color: white;
             text-align: center;
             padding: 150px 0 100px;
-            margin-top: -80px;
+            margin-top: -80px; /* Offset for fixed header */
             animation: zoomIn 1.5s ease;
         }
 
@@ -419,9 +457,699 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
-        /* Rest of your existing CSS remains the same... */
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: white;
+            animation: slideUp 1s ease 0.5s both;
+        }
 
-        /* RESPONSIVE DESIGN */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            animation: slideUp 1s ease 0.7s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background-color: #00a085;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 184, 148, 0.3);
+        }
+
+        /* About Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            animation: expandWidth 1s ease 0.5s both;
+        }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Sectors Section - BLUE THEME */
+        .sectors {
+            background: linear-gradient(135deg, #0a3d62 0%, #1a4a7a 50%, #0a3d62 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sectors::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(30, 144, 255, 0.2) 0px, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 184, 148, 0.2) 0px, transparent 50%);
+            z-index: 0;
+            animation: pulseBackground 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseBackground {
+            0% { opacity: 0.5; }
+            100% { opacity: 0.8; }
+        }
+
+        .sectors .section-title h2 {
+            color: white;
+        }
+
+        .sectors .section-title h2::after {
+            background-color: var(--accent);
+        }
+
+        .sectors .section-title p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .sectors-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sector-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .sector-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .sector-card:hover::before {
+            left: 100%;
+        }
+
+        .sector-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .sector-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.5s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sector-card:hover .sector-icon {
+            transform: scale(1.2) rotate(360deg);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 184, 148, 0.5);
+        }
+
+        .sector-icon i {
+            font-size: 2.8rem;
+            color: white;
+            transition: all 0.5s ease;
+        }
+
+        .sector-card:hover .sector-icon i {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(0, 184, 148, 0.5);
+        }
+
+        .sector-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+
+        .sector-card p {
+            position: relative;
+            z-index: 1;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Values Section */
+        .values-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--primary);
+        }
+
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .value-item:hover::before {
+            left: 100%;
+        }
+
+        .value-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-top-color: var(--accent);
+        }
+
+        .value-item i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .value-item:hover i {
+            color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        /* NEW: Subsidiaries Section - ANIMATED */
+        .subsidiaries {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subsidiaries::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(30, 144, 255, 0.05) 0px, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(0, 184, 148, 0.05) 0px, transparent 50%);
+            z-index: 0;
+        }
+
+        .subsidiaries-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subsidiary-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(10, 61, 98, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transform-style: preserve-3d;
+        }
+
+        .subsidiary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 184, 148, 0.1) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .subsidiary-card:hover::before {
+            opacity: 1;
+        }
+
+        .subsidiary-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent), var(--secondary));
+            border-radius: 17px;
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .subsidiary-card:hover::after {
+            opacity: 1;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .subsidiary-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(10, 61, 98, 0.15);
+            border-color: transparent;
+        }
+
+        .subsidiary-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 20px rgba(30, 144, 255, 0.3);
+        }
+
+        .subsidiary-card:hover .subsidiary-icon {
+            transform: scale(1.2) rotateY(180deg);
+            box-shadow: 0 15px 30px rgba(30, 144, 255, 0.4);
+        }
+
+        .subsidiary-icon i {
+            font-size: 2.5rem;
+            color: white;
+            transition: all 0.5s ease;
+        }
+
+        .subsidiary-card:hover .subsidiary-icon i {
+            transform: rotateY(-180deg);
+        }
+
+        .subsidiary-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            color: var(--primary);
+        }
+
+        .subsidiary-card p {
+            position: relative;
+            z-index: 1;
+            color: #555;
+        }
+
+        /* Global Presence Section */
+        .global-presence {
+            background: linear-gradient(135deg, #0a3d62 0%, #1a4a7a 50%, #0a3d62 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .global-presence::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 15% 85%, rgba(30, 144, 255, 0.15) 0px, transparent 50%),
+                radial-gradient(circle at 85% 15%, rgba(0, 184, 148, 0.15) 0px, transparent 50%);
+            z-index: 0;
+        }
+
+        .global-presence .section-title h2 {
+            color: white;
+            font-size: 2.8rem;
+        }
+
+        .global-presence .section-title h2::after {
+            background-color: var(--accent);
+            width: 100px;
+            height: 5px;
+        }
+
+        .global-presence .section-title p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 1rem auto 0;
+        }
+
+        .global-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .global-text {
+            flex: 1;
+        }
+
+        .global-text h3 {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .global-text p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .global-map {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .globe-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .globe-container i {
+            font-size: 12rem;
+            color: rgba(255, 255, 255, 0.8);
+            filter: drop-shadow(0 0 20px rgba(30, 144, 255, 0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .globe-points {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .globe-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 15px var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.7; }
+        }
+
+        .globe-point:nth-child(1) { top: 30%; left: 40%; animation-delay: 0s; }
+        .globe-point:nth-child(2) { top: 60%; left: 70%; animation-delay: 0.5s; }
+        .globe-point:nth-child(3) { top: 40%; left: 80%; animation-delay: 1s; }
+        .globe-point:nth-child(4) { top: 70%; left: 30%; animation-delay: 1.5s; }
+        .globe-point:nth-child(5) { top: 20%; left: 60%; animation-delay: 2s; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(0, 184, 148, 0.1));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-item:hover::before {
+            opacity: 1;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            position: relative;
+            text-shadow: 0 0 10px rgba(0, 184, 148, 0.3);
+        }
+
+        .stat-item p {
+            color: white;
+            margin-bottom: 0;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .global-map h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .global-map p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo h3 {
+            color: white;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-links h4::after, .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .acronym {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Styles */
         @media (max-width: 1100px) {
             nav ul {
                 gap: 5px;
@@ -539,17 +1267,107 @@
                 opacity: 0;
                 visibility: hidden;
                 transition: var(--transition);
+                display: block;
             }
             
             .nav-overlay.active {
                 opacity: 1;
                 visibility: visible;
             }
+            
+            .about-content, .global-content {
+                flex-direction: column;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .global-map i {
+                font-size: 10rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                width: 280px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .globe-container i {
+                font-size: 8rem;
+            }
+            
+            .stat-item h3 {
+                font-size: 2.5rem;
+            }
+            
+            .sector-card, .value-item, .subsidiary-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .sector-icon, .subsidiary-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .sector-icon i, .subsidiary-icon i {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .global-presence .section-title h2 {
+                font-size: 2.2rem;
+            }
         }
 
         @media (max-width: 480px) {
-            nav ul {
-                width: 280px;
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+            }
+            
+            .sector-card, .value-item, .subsidiary-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .sectors-container, .values-container, .subsidiaries-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .stat-item {
+                padding: 1.5rem 1rem;
+            }
+            
+            .stat-item h3 {
+                font-size: 2rem;
+            }
+            
+            .global-map i {
+                font-size: 6rem;
             }
             
             .logo-text h1 {
@@ -563,7 +1381,7 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- NEW MODERN HEADER -->
     <header id="mainHeader">
         <div class="container">
             <div class="header-content">
@@ -615,8 +1433,6 @@
         </div>
     </header>
 
-    <!-- Rest of your HTML remains the same... -->
-
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
@@ -626,7 +1442,230 @@
         </div>
     </section>
 
-    <!-- ... Rest of your sections remain exactly as before ... -->
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="fade-up">About MGL</h2>
+                <p class="fade-up" style="animation-delay: 0.1s; max-width: 800px; margin: 0 auto;">Learn about our journey, mission, and the principles that guide our success</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-left">
+                    <h3>Mitekaro Group Company</h3>
+                    <p>Founded on the principles of innovation and sustainable development, Mitekaro Group Company (MGL) operates across four key sectors that are essential to modern society. Our integrated approach allows us to create synergies between technology, agriculture, transport, and health, delivering comprehensive solutions that drive progress.</p>
+                    <p>With operations spanning multiple continents, MGL combines local expertise with global insights to address complex challenges. Our commitment to excellence and ethical practices has made us a trusted partner for governments, businesses, and communities worldwide.</p>
+                    <div class="acronym">
+                        <h4>MGL Acronym</h4>
+                        <p><strong>M</strong> - Multisector Innovation</p>
+                        <p><strong>G</strong> - Global Integration</p>
+                        <p><strong>L</strong> - Local Impact</p>
+                    </div>
+                </div>
+                <div class="about-image fade-right">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="MGL Corporate Office">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sectors Section - BLUE THEME -->
+    <section class="section sectors" id="sectors">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="fade-up">Our Core Sectors</h2>
+                <p class="fade-up" style="animation-delay: 0.1s; max-width: 800px; margin: 0 auto;">Driving innovation and excellence across four essential industries</p>
+            </div>
+            <div class="sectors-container">
+                <div class="sector-card fade-up" style="animation-delay: 0.1s">
+                    <div class="sector-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Technology</h3>
+                    <p>Developing cutting-edge solutions in AI, IoT, cybersecurity, and digital transformation to power the future of industries.</p>
+                </div>
+                <div class="sector-card fade-up" style="animation-delay: 0.2s">
+                    <div class="sector-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Agriculture</h3>
+                    <p>Implementing sustainable farming techniques, precision agriculture, and supply chain innovations to ensure food security.</p>
+                </div>
+                <div class="sector-card fade-up" style="animation-delay: 0.3s">
+                    <div class="sector-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Transport</h3>
+                    <p>Revolutionizing logistics with smart mobility solutions, efficient supply chains, and sustainable transport systems.</p>
+                </div>
+                <div class="sector-card fade-up" style="animation-delay: 0.4s">
+                    <div class="sector-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Health</h3>
+                    <p>Advancing healthcare through medical technology, pharmaceutical research, and accessible health services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subsidiaries Section - ANIMATED -->
+    <section class="section subsidiaries" id="subsidiaries">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="fade-up">Our Subsidiaries</h2>
+                <p class="fade-up" style="animation-delay: 0.1s">MGL operates through specialized subsidiaries that focus on specific market segments</p>
+            </div>
+            <div class="subsidiaries-container">
+                <div class="subsidiary-card fade-up" style="animation-delay: 0.1s">
+                    <div class="subsidiary-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>MavunoTrade</h3>
+                    <p>Agricultural trading and commodity exchange platform connecting farmers directly to global markets with fair pricing and sustainable practices.</p>
+                </div>
+                <div class="subsidiary-card fade-up" style="animation-delay: 0.2s">
+                    <div class="subsidiary-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Spero Therapy</h3>
+                    <p>Mental health and wellness services providing counseling, therapy, and holistic well-being programs for individuals and organizations.</p>
+                </div>
+                <div class="subsidiary-card fade-up" style="animation-delay: 0.3s">
+                    <div class="subsidiary-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Mitekaro Tech Inc</h3>
+                    <p>Technology solutions provider specializing in enterprise software, AI integration, and digital transformation services for businesses.</p>
+                </div>
+                <div class="subsidiary-card fade-up" style="animation-delay: 0.4s">
+                    <div class="subsidiary-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>MITE Transport</h3>
+                    <p>Comprehensive logistics and transportation services including freight, warehousing, and supply chain optimization solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Presence Section -->
+    <section class="section global-presence" id="global">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="fade-up">Global Presence & Impact</h2>
+                <p class="fade-up" style="animation-delay: 0.1s">Expanding horizons and creating value across the world</p>
+            </div>
+            <div class="global-content">
+                <div class="global-text fade-left">
+                    <h3>Operating Across Continents</h3>
+                    <p>MGL has established a significant global footprint with operations in key markets worldwide. Our international presence allows us to leverage local insights while maintaining global standards of excellence.</p>
+                    <p>We've successfully delivered projects in over 15 countries across North America, Europe, Africa, and Asia, adapting our solutions to meet diverse cultural and regulatory requirements while maintaining our commitment to quality and innovation.</p>
+                    <p>Our cross-sector integration model allows us to deploy resources efficiently across borders, creating value for stakeholders worldwide while contributing to sustainable development goals in each region we operate.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item fade-up" style="animation-delay: 0.1s">
+                            <h3>15+</h3>
+                            <p>Countries</p>
+                        </div>
+                        <div class="stat-item fade-up" style="animation-delay: 0.2s">
+                            <h3>2,500+</h3>
+                            <p>Employees</p>
+                        </div>
+                        <div class="stat-item fade-up" style="animation-delay: 0.3s">
+                            <h3>100+</h3>
+                            <p>Partners</p>
+                        </div>
+                        <div class="stat-item fade-up" style="animation-delay: 0.4s">
+                            <h3>12</h3>
+                            <p>Years</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="global-map fade-right">
+                    <div class="globe-container">
+                        <i class="fas fa-globe-americas"></i>
+                        <div class="globe-points">
+                            <div class="globe-point"></div>
+                            <div class="globe-point"></div>
+                            <div class="globe-point"></div>
+                            <div class="globe-point"></div>
+                            <div class="globe-point"></div>
+                        </div>
+                    </div>
+                    <h3>Worldwide Operations</h3>
+                    <p>Strategic presence across four continents</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section" id="values">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="fade-up">Our Core Values</h2>
+                <p class="fade-up" style="animation-delay: 0.1s">The principles that guide everything we do</p>
+            </div>
+            <div class="values-container">
+                <div class="value-item fade-up" style="animation-delay: 0.1s">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>We constantly seek creative solutions and embrace emerging technologies to stay ahead of industry trends.</p>
+                </div>
+                <div class="value-item fade-up" style="animation-delay: 0.2s">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Integrity</h3>
+                    <p>We conduct business with transparency, honesty, and respect for all stakeholders and communities we serve.</p>
+                </div>
+                <div class="value-item fade-up" style="animation-delay: 0.3s">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainability</h3>
+                    <p>We are committed to environmentally responsible practices that ensure long-term viability for future generations.</p>
+                </div>
+                <div class="value-item fade-up" style="animation-delay: 0.4s">
+                    <i class="fas fa-users"></i>
+                    <h3>Collaboration</h3>
+                    <p>We believe in the power of partnerships and teamwork to achieve greater impact across all sectors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about fade-up">
+                    <div class="footer-logo">
+                        <h3>Mitekaro Group Company</h3>
+                        <p>Integrated Solutions Across Sectors</p>
+                    </div>
+                    <p>MGL is dedicated to creating a better future through innovation in technology, agriculture, transport, and health.</p>
+                </div>
+                <div class="footer-links fade-up" style="animation-delay: 0.1s">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#sectors">Our Sectors</a></li>
+                        <li><a href="#subsidiaries">Subsidiaries</a></li>
+                        <li><a href="#values">Our Values</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact fade-up" style="animation-delay: 0.2s">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Innovation Drive, Tech City, TC 10001</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@mitekaro-group.com</p>
+                    <p><i class="fas fa-globe"></i> www.mitekaro-group.com</p>
+                </div>
+            </div>
+            <div class="copyright fade-up" style="animation-delay: 0.3s">
+                <p>&copy; 2023 Mitekaro Group Company (MGL). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Mobile Menu Toggle
@@ -765,7 +1804,7 @@
         window.addEventListener('scroll', setActiveLink);
         
         // Scroll animation for elements
-        const animatedElements = document.querySelectorAll('.fade-up');
+        const animatedElements = document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-up');
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -780,6 +1819,53 @@
         
         animatedElements.forEach(element => {
             observer.observe(element);
+        });
+        
+        // Add scroll animation to section titles
+        const sectionTitles = document.querySelectorAll('.section-title');
+        sectionTitles.forEach(title => {
+            title.classList.add('fade-up');
+            observer.observe(title);
+        });
+        
+        // Add scroll animation to about content
+        const aboutText = document.querySelector('.about-text');
+        const aboutImage = document.querySelector('.about-image');
+        if (aboutText) aboutText.classList.add('fade-left');
+        if (aboutImage) aboutImage.classList.add('fade-right');
+        
+        // Add scroll animation to global content
+        const globalText = document.querySelector('.global-text');
+        const globalMap = document.querySelector('.global-map');
+        if (globalText) globalText.classList.add('fade-left');
+        if (globalMap) globalMap.classList.add('fade-right');
+        
+        // Add scroll animation to sector cards
+        const sectorCards = document.querySelectorAll('.sector-card');
+        sectorCards.forEach((card, index) => {
+            card.classList.add('fade-up');
+            card.style.animationDelay = `${(index + 1) * 0.1}s`;
+        });
+        
+        // Add scroll animation to subsidiary cards
+        const subsidiaryCards = document.querySelectorAll('.subsidiary-card');
+        subsidiaryCards.forEach((card, index) => {
+            card.classList.add('fade-up');
+            card.style.animationDelay = `${(index + 1) * 0.1}s`;
+        });
+        
+        // Add scroll animation to value items
+        const valueItems = document.querySelectorAll('.value-item');
+        valueItems.forEach((item, index) => {
+            item.classList.add('fade-up');
+            item.style.animationDelay = `${(index + 1) * 0.1}s`;
+        });
+        
+        // Add scroll animation to stat items
+        const statItems = document.querySelectorAll('.stat-item');
+        statItems.forEach((item, index) => {
+            item.classList.add('fade-up');
+            item.style.animationDelay = `${(index + 1) * 0.1}s`;
         });
     </script>
 </body>
