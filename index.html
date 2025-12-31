@@ -12,11 +12,15 @@
             --secondary: #57cc99;
             --accent: #ff9a3c;
             --light: #f8f9fa;
-            --dark: #343a40;
+            --dark: #2d3436;
             --success: #28a745;
             --warning: #ffc107;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
+            --gradient-primary: linear-gradient(135deg, #1a5f7a 0%, #2a7fa9 100%);
+            --gradient-secondary: linear-gradient(135deg, #57cc99 0%, #3bbf7f 100%);
+            --gradient-accent: linear-gradient(135deg, #ff9a3c 0%, #ff7b00 100%);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
         }
 
         * {
@@ -25,19 +29,24 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: #333;
+            line-height: 1.7;
+            color: #444;
             background-color: #fff;
             overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             color: var(--primary);
+            line-height: 1.3;
         }
 
         .container {
@@ -49,15 +58,16 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             position: relative;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             display: inline-block;
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
+            margin-bottom: 1rem;
         }
 
         .section-title h2::after {
@@ -66,120 +76,184 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 100px;
             height: 4px;
-            background-color: var(--secondary);
+            background: var(--gradient-secondary);
+            border-radius: 2px;
         }
 
         .section-title p {
             color: #666;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             max-width: 700px;
-            margin: 1rem auto 0;
+            margin: 0 auto;
+            font-weight: 400;
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--secondary);
+            background: var(--gradient-secondary);
             color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
             border: none;
             cursor: pointer;
             font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(87, 204, 153, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #3bbf7f 0%, #57cc99 100%);
+            z-index: -1;
+            transition: var(--transition);
+            opacity: 0;
         }
 
         .btn:hover {
-            background-color: #3bbf7f;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(87, 204, 153, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(87, 204, 153, 0.4);
+        }
+
+        .btn:hover::before {
+            opacity: 1;
         }
 
         .btn-primary {
-            background-color: var(--primary);
+            background: var(--gradient-primary);
+            box-shadow: 0 5px 15px rgba(26, 95, 122, 0.3);
         }
 
         .btn-primary:hover {
-            background-color: #0d4c63;
+            box-shadow: 0 15px 25px rgba(26, 95, 122, 0.4);
         }
 
         .btn-accent {
-            background-color: var(--accent);
+            background: var(--gradient-accent);
+            box-shadow: 0 5px 15px rgba(255, 154, 60, 0.3);
         }
 
         .btn-accent:hover {
-            background-color: #ff8c1a;
+            box-shadow: 0 15px 25px rgba(255, 154, 60, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--gradient-secondary);
+            color: white;
         }
 
         /* Header Styles */
         header {
-            background-color: white;
-            box-shadow: var(--shadow);
-            position: sticky;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
             transition: var(--transition);
+            padding: 1rem 0;
+        }
+
+        header.scrolled {
+            padding: 0.7rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.98);
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 0.5rem 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
             text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
         }
 
         .logo-icon {
-            background-color: var(--primary);
+            background: var(--gradient-primary);
             color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-right: 12px;
-            box-shadow: 0 4px 10px rgba(26, 95, 122, 0.2);
+            margin-right: 15px;
+            box-shadow: 0 5px 15px rgba(26, 95, 122, 0.2);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(5deg);
+            box-shadow: 0 8px 20px rgba(26, 95, 122, 0.3);
         }
 
         .logo-text h1 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 0;
             color: var(--primary);
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .logo-text span {
             color: var(--accent);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            display: block;
+            margin-top: 2px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: var(--dark);
-            font-weight: 500;
+            font-weight: 600;
             transition: var(--transition);
             padding: 0.5rem 0;
             position: relative;
             font-family: 'Poppins', sans-serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
         }
 
         nav ul li a::after {
@@ -188,8 +262,9 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
-            background-color: var(--secondary);
+            height: 3px;
+            background: var(--gradient-secondary);
+            border-radius: 3px;
             transition: var(--transition);
         }
 
@@ -201,49 +276,195 @@
             color: var(--primary);
         }
 
+        nav ul li a.active {
+            color: var(--primary);
+        }
+
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
         .mobile-menu-btn {
             display: none;
-            background: none;
+            background: var(--gradient-primary);
+            color: white;
             border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
             font-size: 1.5rem;
-            color: var(--primary);
             cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(26, 95, 122, 0.2);
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(26, 95, 122, 0.3);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 95, 122, 0.85), rgba(26, 95, 122, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(26, 95, 122, 0.9), rgba(26, 95, 122, 0.95)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
             text-align: center;
-            padding: 150px 0 100px;
+            padding: 180px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, white, transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero h2 {
-            font-size: 3rem;
+            font-size: 3.8rem;
             margin-bottom: 1.5rem;
             color: white;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 700px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 2.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-secondary);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-card:hover::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.8rem;
+            font-size: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--gradient-secondary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card p {
+            color: #666;
+            position: relative;
+            z-index: 2;
         }
 
         /* About Section */
         .about {
-            padding: 5rem 0;
-            background-color: var(--light);
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a5f7a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
         }
 
         .about-content {
             display: flex;
             align-items: center;
-            gap: 4rem;
+            gap: 5rem;
         }
 
         .about-text {
@@ -251,20 +472,27 @@
         }
 
         .about-text h3 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
         }
 
         .about-text p {
             margin-bottom: 1.5rem;
             color: #555;
+            font-size: 1.05rem;
         }
 
         .about-stats {
             display: flex;
             justify-content: space-between;
-            margin-top: 2rem;
+            margin-top: 3rem;
             flex-wrap: wrap;
+            gap: 1.5rem;
         }
 
         .stat {
@@ -272,58 +500,118 @@
             padding: 1.5rem;
             flex: 1;
             min-width: 150px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
         }
 
         .stat h4 {
-            font-size: 2.5rem;
-            color: var(--primary);
+            font-size: 2.8rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             margin-bottom: 0.5rem;
+            font-weight: 800;
         }
 
         .stat p {
             color: #666;
             font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 0;
         }
 
         .about-image {
             flex: 1;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+            box-shadow: var(--shadow-hover);
         }
 
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
         }
 
         /* Schools Section */
         .schools {
-            padding: 5rem 0;
+            padding: 6rem 0;
+            background-color: white;
         }
 
         .schools-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
 
         .school-card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            position: relative;
+        }
+
+        .school-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(26, 95, 122, 0.1));
+            z-index: 1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .school-card:hover::before {
+            opacity: 1;
         }
 
         .school-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .school-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(255, 154, 60, 0.3);
         }
 
         .school-image {
-            height: 200px;
+            height: 250px;
             overflow: hidden;
         }
 
@@ -335,15 +623,17 @@
         }
 
         .school-card:hover .school-image img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .school-info {
-            padding: 2rem;
+            padding: 2.5rem;
+            position: relative;
+            z-index: 2;
         }
 
         .school-info h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
         }
 
@@ -354,24 +644,28 @@
 
         .school-features {
             list-style: none;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .school-features li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
+            color: #555;
         }
 
         .school-features i {
             color: var(--secondary);
-            margin-right: 10px;
+            margin-right: 12px;
+            font-size: 1.1rem;
+            width: 20px;
         }
 
-        /* SPONSORSHIP SECTION - MAIN FEATURE */
+        /* Sponsorship Section */
         .sponsorship {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 6rem 0;
+            background: var(--gradient-primary);
+            color: white;
             position: relative;
             overflow: hidden;
         }
@@ -383,7 +677,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%231a5f7a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0px, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0px, transparent 50%);
+        }
+
+        .sponsorship .section-title h2 {
+            color: white;
+        }
+
+        .sponsorship .section-title p {
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .sponsorship-container {
@@ -394,353 +698,167 @@
             z-index: 1;
         }
 
-        .sponsorship-info {
-            padding: 2rem;
-        }
-
-        .sponsorship-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .sponsorship-info p {
-            margin-bottom: 1.5rem;
-            color: #555;
-            line-height: 1.7;
-        }
-
-        .impact-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .impact-stat {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            flex: 1;
-            min-width: 140px;
+        .sponsorship-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
             text-align: center;
-        }
-
-        .impact-stat h4 {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .impact-stat p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0;
-        }
-
-        /* Sponsorship Form */
-        .sponsorship-form-container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
 
-        .sponsorship-form-container::before {
+        .sponsorship-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .form-header h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-header p {
-            color: #666;
-        }
-
-        .form-tabs {
-            display: flex;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .tab-btn {
-            flex: 1;
-            padding: 1rem;
-            background: none;
-            border: none;
-            font-weight: 600;
-            color: #666;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .tab-btn.active {
-            color: var(--primary);
-        }
-
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--secondary);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #555;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            z-index: -1;
+            opacity: 0;
             transition: var(--transition);
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(87, 204, 153, 0.2);
+        .sponsorship-card:hover {
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
-        .amount-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 0.5rem;
-            margin-top: 0.5rem;
+        .sponsorship-card:hover::before {
+            opacity: 1;
         }
 
-        .amount-option {
-            padding: 0.8rem;
-            text-align: center;
-            background-color: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 600;
-        }
-
-        .amount-option:hover {
-            background-color: #e9ecef;
-        }
-
-        .amount-option.selected {
-            background-color: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
-        }
-
-        .custom-amount {
-            display: flex;
-            margin-top: 0.5rem;
-        }
-
-        .custom-amount span {
-            background-color: #f8f9fa;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-right: none;
-            border-radius: 5px 0 0 5px;
-            color: #666;
-        }
-
-        .custom-amount input {
-            flex: 1;
-            border-radius: 0 5px 5px 0;
-        }
-
-        .child-selection {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        .child-option {
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            padding: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .child-option:hover {
-            border-color: var(--secondary);
-            background-color: rgba(87, 204, 153, 0.05);
-        }
-
-        .child-option.selected {
-            border-color: var(--secondary);
-            background-color: rgba(87, 204, 153, 0.1);
-        }
-
-        .child-option h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .child-option p {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .child-option .fee {
-            font-weight: 700;
-            color: var(--accent);
-            font-size: 1.1rem;
-        }
-
-        .payment-summary {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.8rem;
-        }
-
-        .summary-row.total {
-            border-top: 2px solid #ddd;
-            padding-top: 1rem;
-            margin-top: 1rem;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-
-        .form-footer {
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .form-footer p {
-            color: #666;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-        }
-
-        /* Programs Section */
-        .programs {
-            padding: 5rem 0;
-            background-color: white;
-        }
-
-        .programs-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .program-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .program-icon {
-            width: 80px;
-            height: 80px;
+        .sponsorship-icon {
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            background-color: var(--primary);
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
+            margin: 0 auto 2rem;
+            font-size: 3rem;
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-        .program-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .sponsorship-card:hover .sponsorship-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: rgba(255, 255, 255, 0.3);
+            border-color: var(--accent);
         }
 
-        .program-card p {
+        .sponsorship-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .sponsorship-card p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .sponsorship-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sponsorship-stat h4 {
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .sponsorship-stat p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
             color: #666;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* Footer */
         footer {
-            background-color: var(--primary);
+            background: var(--gradient-primary);
             color: white;
-            padding: 4rem 0 2rem;
+            padding: 5rem 0 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
         }
 
         .footer-logo h3 {
             color: white;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-logo p {
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
         }
 
         .social-links {
@@ -749,8 +867,8 @@
         }
 
         .social-links a {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.1);
             color: white;
@@ -762,15 +880,15 @@
         }
 
         .social-links a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
+            background-color: var(--accent);
+            transform: translateY(-5px);
         }
 
         .footer-links h4, .footer-contact h4 {
             color: white;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
 
         .footer-links h4::after, .footer-contact h4::after {
@@ -778,9 +896,10 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
+            width: 50px;
             height: 3px;
             background-color: var(--accent);
+            border-radius: 3px;
         }
 
         .footer-links ul {
@@ -788,134 +907,91 @@
         }
 
         .footer-links ul li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .footer-links ul li a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links ul li a i {
+            margin-right: 10px;
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
 
         .footer-links ul li a:hover {
             color: var(--accent);
-            padding-left: 5px;
+            padding-left: 10px;
+        }
+
+        .footer-links ul li a:hover i {
+            transform: translateX(5px);
         }
 
         .footer-contact p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             color: rgba(255, 255, 255, 0.8);
         }
 
         .footer-contact i {
-            margin-right: 10px;
+            margin-right: 15px;
             color: var(--accent);
+            font-size: 1.2rem;
+            width: 25px;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 3rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-        }
-
-        /* Modal for Success Message */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            border-radius: 10px;
-            padding: 3rem;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            font-size: 0.95rem;
             position: relative;
-            animation: modalAppear 0.3s ease;
-        }
-
-        @keyframes modalAppear {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .modal-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: var(--secondary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2.5rem;
-        }
-
-        .modal h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .modal p {
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #999;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .close-modal:hover {
-            color: var(--primary);
+            z-index: 2;
         }
 
         /* Responsive Styles */
-        @media (max-width: 992px) {
+        @media (max-width: 1100px) {
             .about-content {
                 flex-direction: column;
+                gap: 4rem;
             }
             
+            .about-image {
+                order: -1;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 992px) {
             .hero h2 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
-            .sponsorship-container {
-                grid-template-columns: 1fr;
+            .section-title h2 {
+                font-size: 2.5rem;
             }
             
             nav ul {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 80px;
                 left: 0;
                 width: 100%;
                 background-color: white;
                 flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 2rem;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                gap: 0;
             }
             
             nav ul.active {
@@ -924,65 +1000,110 @@
             
             nav ul li {
                 text-align: center;
-                padding: 0.8rem 0;
+                padding: 1rem 0;
+                width: 100%;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 0.8rem;
+                font-size: 1.1rem;
             }
             
             .mobile-menu-btn {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .schools-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
             }
         }
 
         @media (max-width: 768px) {
+            .hero {
+                padding: 150px 0 100px;
+            }
+            
             .hero h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .hero p {
-                font-size: 1rem;
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .about-stats {
+                justify-content: center;
+            }
+            
+            .sponsorship-container {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .cta h2 {
+                font-size: 2.3rem;
+            }
+            
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2rem;
             }
             
             .section-title h2 {
                 font-size: 2rem;
             }
             
-            .sponsorship-form-container {
-                padding: 1.5rem;
+            .logo-text h1 {
+                font-size: 1.3rem;
             }
             
-            .impact-stats {
-                justify-content: center;
+            .logo-text span {
+                font-size: 0.7rem;
             }
             
-            .about-stats {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 120px 0 80px;
+            .feature-card, .sponsorship-card {
+                padding: 2rem 1.5rem;
             }
             
-            .btn {
-                padding: 0.7rem 1.5rem;
-            }
-            
-            .stat, .impact-stat {
+            .stat {
                 min-width: 120px;
+                padding: 1.2rem;
             }
             
-            .child-selection {
-                grid-template-columns: 1fr;
+            .stat h4 {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="mainHeader">
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">
+                <a href="#home" class="logo">
                     <div class="logo-icon">TMS</div>
                     <div class="logo-text">
                         <h1>Twing Memorial Schools</h1>
@@ -994,12 +1115,12 @@
                 </button>
                 <nav>
                     <ul id="navMenu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="schools.html">Our Schools</a></li>
-                        <li><a href="programs.html">Programs</a></li>
-                        <li><a href="sponsor.html" class="active">Sponsor a Child</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#schools">Our Schools</a></li>
+                        <li><a href="#features">Why Choose Us</a></li>
+                        <li><a href="#sponsorship">Sponsor a Child</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -1009,9 +1130,54 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h2>Empowering Minds, Building Futures</h2>
-            <p>Twing Memorial Schools provides quality education for elementary and high school students, fostering academic excellence and character development since 1985.</p>
-            <a href="#sponsorship" class="btn btn-accent">Sponsor a Child's Education</a>
+            <div class="hero-content">
+                <h2>Empowering Minds, Building Futures</h2>
+                <p>Twing Memorial Schools provides exceptional education for elementary and high school students, fostering academic excellence and character development since 1985.</p>
+                <div class="hero-btns">
+                    <a href="#sponsorship" class="btn btn-accent">Sponsor a Child's Education</a>
+                    <a href="#schools" class="btn btn-outline">Explore Our Schools</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Twing Memorial</h2>
+                <p>We provide a holistic educational experience that prepares students for success in life</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academic Excellence</h3>
+                    <p>Consistently high graduation rates with students excelling in national examinations and university placements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Experienced Faculty</h3>
+                    <p>Our dedicated teachers have an average of 15+ years experience with specialized training in modern pedagogy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Inclusive Community</h3>
+                    <p>We believe every child deserves quality education regardless of their family's financial situation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Modern Facilities</h3>
+                    <p>State-of-the-art classrooms, science labs, sports facilities, and technology integration across campuses.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1020,14 +1186,14 @@
         <div class="container">
             <div class="section-title">
                 <h2>About Our Institution</h2>
-                <p>With over 35 years of educational excellence, Twing Memorial Schools has been a pillar of quality education in our community.</p>
+                <p>With over 35 years of educational excellence, Twing Memorial has been a pillar of quality education</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <h3>Our Mission & Vision</h3>
-                    <p>Founded in 1985 in memory of Dr. Jonathan Twing, our school is dedicated to providing accessible, quality education that nurtures both academic excellence and strong moral character.</p>
-                    <p>We believe every child deserves the opportunity to learn, grow, and reach their full potential regardless of their family's financial situation.</p>
-                    <p>Our holistic approach to education combines rigorous academics with character development, sports, arts, and community service.</p>
+                    <p>Founded in 1985 in memory of Dr. Jonathan Twing, our institution is dedicated to providing accessible, quality education that nurtures both academic excellence and strong moral character.</p>
+                    <p>We believe every child deserves the opportunity to learn, grow, and reach their full potential. Our holistic approach combines rigorous academics with character development, sports, arts, and community service.</p>
+                    <p>Our graduates have gone on to excel in universities worldwide and make meaningful contributions to society across various fields.</p>
                     
                     <div class="about-stats">
                         <div class="stat">
@@ -1060,276 +1226,107 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Schools</h2>
-                <p>Two distinct campuses tailored to different age groups, each with specialized facilities and programs.</p>
+                <p>Two distinct campuses tailored to different age groups, each with specialized facilities and programs</p>
             </div>
             <div class="schools-container">
                 <div class="school-card">
+                    <div class="school-badge">Elementary</div>
                     <div class="school-image">
                         <img src="https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Twing Elementary School">
                     </div>
                     <div class="school-info">
                         <h3>Twing Memorial Elementary School</h3>
-                        <p>Grades 1-6: Building strong foundations in literacy, numeracy, and social skills in a nurturing environment.</p>
+                        <p>Grades 1-6: Building strong foundations in literacy, numeracy, and social skills in a nurturing environment designed for young learners.</p>
                         <ul class="school-features">
-                            <li><i class="fas fa-check-circle"></i> Age-appropriate learning facilities</li>
-                            <li><i class="fas fa-check-circle"></i> Specialized early childhood educators</li>
-                            <li><i class="fas fa-check-circle"></i> After-school care program</li>
-                            <li><i class="fas fa-check-circle"></i> Music, art, and physical education</li>
+                            <li><i class="fas fa-check"></i> Age-appropriate learning facilities</li>
+                            <li><i class="fas fa-check"></i> Specialized early childhood educators</li>
+                            <li><i class="fas fa-check"></i> After-school care program</li>
+                            <li><i class="fas fa-check"></i> Music, art, and physical education</li>
+                            <li><i class="fas fa-check"></i> Safe and secure campus environment</li>
                         </ul>
-                        <a href="#sponsorship" class="btn" style="margin-top: 1rem;">Sponsor an Elementary Student</a>
+                        <a href="sponsor.html" class="btn" style="margin-top: 1.5rem;">Sponsor an Elementary Student</a>
                     </div>
                 </div>
                 <div class="school-card">
+                    <div class="school-badge">High School</div>
                     <div class="school-image">
                         <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Twing High School">
                     </div>
                     <div class="school-info">
                         <h3>Twing Memorial High School</h3>
-                        <p>Grades 7-12: Preparing students for college and career with advanced academics and extracurricular opportunities.</p>
+                        <p>Grades 7-12: Preparing students for college and career with advanced academics, leadership opportunities, and extracurricular programs.</p>
                         <ul class="school-features">
-                            <li><i class="fas fa-check-circle"></i> College preparatory curriculum</li>
-                            <li><i class="fas fa-check-circle"></i> STEM laboratory facilities</li>
-                            <li><i class="fas fa-check-circle"></i> Sports and athletic programs</li>
-                            <li><i class="fas fa-check-circle"></i> Career guidance and counseling</li>
+                            <li><i class="fas fa-check"></i> College preparatory curriculum</li>
+                            <li><i class="fas fa-check"></i> STEM laboratory facilities</li>
+                            <li><i class="fas fa-check"></i> Sports and athletic programs</li>
+                            <li><i class="fas fa-check"></i> Career guidance and counseling</li>
+                            <li><i class="fas fa-check"></i> Leadership development programs</li>
                         </ul>
-                        <a href="#sponsorship" class="btn btn-primary" style="margin-top: 1rem;">Sponsor a High School Student</a>
+                        <a href="sponsor.html" class="btn btn-primary" style="margin-top: 1.5rem;">Sponsor a High School Student</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SPONSORSHIP SECTION - MAIN FEATURE -->
+    <!-- Sponsorship Section -->
     <section class="sponsorship" id="sponsorship">
         <div class="container">
             <div class="section-title">
                 <h2>Sponsor a Child's Education</h2>
-                <p>Change a life through education. Sponsor a child's school fees or make a donation to support our educational programs.</p>
+                <p>Change a life through education. Your sponsorship provides hope, opportunity, and a pathway out of poverty</p>
             </div>
             <div class="sponsorship-container">
-                <div class="sponsorship-info">
-                    <h3>Your Support Makes Education Possible</h3>
-                    <p>Many bright and deserving children in our community cannot afford quality education. Through your sponsorship, you can cover school fees, uniforms, books, and meals for a child in need.</p>
-                    <p>Your contribution not only pays for education but also provides hope, opportunity, and a pathway out of poverty. Sponsors receive updates on their sponsored child's progress and can correspond with them.</p>
-                    
-                    <div class="impact-stats">
-                        <div class="impact-stat">
+                <div class="sponsorship-card">
+                    <div class="sponsorship-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Full Sponsorship</h3>
+                    <p>Cover all school expenses for a child including tuition, uniforms, books, and meals for an entire academic year.</p>
+                    <div class="sponsorship-stats">
+                        <div class="sponsorship-stat">
                             <h4>247</h4>
                             <p>Children Sponsored</p>
                         </div>
-                        <div class="impact-stat">
+                        <div class="sponsorship-stat">
                             <h4>93%</h4>
-                            <p>Graduation Rate for Sponsored Students</p>
+                            <p>Graduation Rate</p>
                         </div>
-                        <div class="impact-stat">
+                    </div>
+                    <a href="sponsor.html" class="btn btn-accent" style="margin-top: 2rem;">Sponsor a Child</a>
+                </div>
+                
+                <div class="sponsorship-card">
+                    <div class="sponsorship-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Partial Sponsorship</h3>
+                    <p>Contribute towards a child's education by covering specific needs like books, uniforms, or school supplies.</p>
+                    <div class="sponsorship-stats">
+                        <div class="sponsorship-stat">
                             <h4>$85K</h4>
                             <p>Raised This Year</p>
                         </div>
+                        <div class="sponsorship-stat">
+                            <h4>100%</h4>
+                            <p>Funds to Education</p>
+                        </div>
                     </div>
-                    
-                    <div style="margin-top: 2rem;">
-                        <h4>What Sponsorship Covers:</h4>
-                        <ul style="list-style: none; margin-top: 1rem;">
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Full annual school tuition and fees</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> School uniforms and supplies</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Textbooks and learning materials</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Daily nutritious lunch</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Extracurricular activity fees</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Sponsorship Form -->
-                <div class="sponsorship-form-container">
-                    <div class="form-header">
-                        <h3>Make a Difference Today</h3>
-                        <p>Choose how you'd like to support our students</p>
-                    </div>
-                    
-                    <div class="form-tabs">
-                        <button class="tab-btn active" data-tab="sponsor">Sponsor a Child</button>
-                        <button class="tab-btn" data-tab="donate">Make a Donation</button>
-                    </div>
-                    
-                    <!-- Sponsor a Child Form -->
-                    <div class="tab-content active" id="sponsor-form">
-                        <form id="sponsorshipForm">
-                            <div class="form-group">
-                                <label for="sponsor-name">Your Name</label>
-                                <input type="text" id="sponsor-name" class="form-control" placeholder="Enter your full name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="sponsor-email">Email Address</label>
-                                <input type="email" id="sponsor-email" class="form-control" placeholder="Enter your email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Select a Child to Sponsor</label>
-                                <div class="child-selection">
-                                    <div class="child-option" data-child="mary">
-                                        <h4>Mary, Age 8</h4>
-                                        <p>Grade 3, Elementary School</p>
-                                        <p class="fee">$850/year</p>
-                                        <p><small>Excels in mathematics</small></p>
-                                    </div>
-                                    <div class="child-option" data-child="john">
-                                        <h4>John, Age 14</h4>
-                                        <p>Grade 9, High School</p>
-                                        <p class="fee">$1,250/year</p>
-                                        <p><small>Interested in science</small></p>
-                                    </div>
-                                    <div class="child-option" data-child="random">
-                                        <h4>Any Child in Need</h4>
-                                        <p>We'll match you with a child</p>
-                                        <p class="fee">$1,000/year</p>
-                                        <p><small>Average sponsorship cost</small></p>
-                                    </div>
-                                </div>
-                                <input type="hidden" id="selected-child" value="">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Sponsorship Duration</label>
-                                <select id="sponsor-duration" class="form-control">
-                                    <option value="1">One Year - $850-$1,250</option>
-                                    <option value="2">Two Years - $1,700-$2,500</option>
-                                    <option value="until">Until Graduation (Variable)</option>
-                                </select>
-                            </div>
-                            
-                            <div class="payment-summary">
-                                <h4>Payment Summary</h4>
-                                <div class="summary-row">
-                                    <span>Sponsorship Fee:</span>
-                                    <span id="fee-amount">$0</span>
-                                </div>
-                                <div class="summary-row">
-                                    <span>Processing Fee:</span>
-                                    <span>$25</span>
-                                </div>
-                                <div class="summary-row total">
-                                    <span>Total Amount:</span>
-                                    <span id="total-amount">$0</span>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-accent" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
-                                    <i class="fas fa-heart"></i> Sponsor Now
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- Donation Form -->
-                    <div class="tab-content" id="donate-form">
-                        <form id="donationForm">
-                            <div class="form-group">
-                                <label for="donor-name">Your Name</label>
-                                <input type="text" id="donor-name" class="form-control" placeholder="Enter your full name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="donor-email">Email Address</label>
-                                <input type="email" id="donor-email" class="form-control" placeholder="Enter your email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Donation Amount</label>
-                                <div class="amount-options">
-                                    <div class="amount-option" data-amount="25">$25</div>
-                                    <div class="amount-option" data-amount="50">$50</div>
-                                    <div class="amount-option" data-amount="100">$100</div>
-                                    <div class="amount-option" data-amount="250">$250</div>
-                                    <div class="amount-option selected" data-amount="500">$500</div>
-                                </div>
-                                <div class="custom-amount">
-                                    <span>$</span>
-                                    <input type="number" id="custom-amount" class="form-control" placeholder="Other amount" min="1">
-                                </div>
-                                <input type="hidden" id="donation-amount" value="500">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label>Donation Purpose (Optional)</label>
-                                <select id="donation-purpose" class="form-control">
-                                    <option value="general">General School Fund</option>
-                                    <option value="scholarship">Scholarship Fund</option>
-                                    <option value="facilities">Facilities Improvement</option>
-                                    <option value="library">Library Resources</option>
-                                    <option value="sports">Sports Equipment</option>
-                                </select>
-                            </div>
-                            
-                            <div class="payment-summary">
-                                <h4>Donation Summary</h4>
-                                <div class="summary-row">
-                                    <span>Donation Amount:</span>
-                                    <span id="donation-summary">$500</span>
-                                </div>
-                                <div class="summary-row">
-                                    <span>Processing Fee:</span>
-                                    <span>$0</span>
-                                </div>
-                                <div class="summary-row total">
-                                    <span>Total Amount:</span>
-                                    <span id="donation-total">$500</span>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
-                                    <i class="fas fa-hand-holding-heart"></i> Donate Now
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <div class="form-footer">
-                        <p><i class="fas fa-lock"></i> All payments are secure and encrypted</p>
-                        <p><i class="fas fa-receipt"></i> You will receive a tax-deductible receipt</p>
-                    </div>
+                    <a href="sponsor.html" class="btn" style="margin-top: 2rem;">Make a Donation</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Programs Section -->
-    <section class="programs" id="programs">
+    <!-- CTA Section -->
+    <section class="cta">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Programs</h2>
-                <p>Comprehensive educational programs designed to develop well-rounded individuals</p>
-            </div>
-            <div class="programs-container">
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <h3>STEM Program</h3>
-                    <p>Science, Technology, Engineering, and Mathematics curriculum with hands-on laboratory experiences.</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Arts & Creativity</h3>
-                    <p>Visual arts, music, drama, and creative writing programs to nurture artistic expression.</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-futbol"></i>
-                    </div>
-                    <h3>Athletics</h3>
-                    <p>Competitive sports teams and physical education promoting health and teamwork.</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Community Service</h3>
-                    <p>Service-learning projects that connect classroom learning with community needs.</p>
+            <div class="cta-content">
+                <h2>Ready to Make a Difference?</h2>
+                <p>Join our community of sponsors and donors who are transforming lives through education. Your support today creates leaders for tomorrow.</p>
+                <div class="cta-btns">
+                    <a href="sponsor.html" class="btn btn-accent">Start Sponsoring Now</a>
+                    <a href="#contact" class="btn btn-primary">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -1341,7 +1338,7 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <h3>Twing Memorial Schools</h3>
-                    <p>Providing quality education since 1985. High School & Elementary campuses.</p>
+                    <p>Providing quality education since 1985. High School & Elementary campuses dedicated to nurturing tomorrow's leaders.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1352,12 +1349,12 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#schools">Our Schools</a></li>
-                        <li><a href="#programs">Programs</a></li>
-                        <li><a href="#sponsorship">Sponsor a Child</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#schools"><i class="fas fa-chevron-right"></i> Our Schools</a></li>
+                        <li><a href="#features"><i class="fas fa-chevron-right"></i> Why Choose Us</a></li>
+                        <li><a href="sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -1366,6 +1363,7 @@
                     <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
                     <p><i class="fas fa-envelope"></i> info@twingmemorial.edu</p>
                     <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                    <p><i class="fas fa-globe"></i> www.twingmemorial.edu</p>
                 </div>
             </div>
             <div class="copyright">
@@ -1373,20 +1371,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Success Modal -->
-    <div class="modal" id="successModal">
-        <div class="modal-content">
-            <button class="close-modal" id="closeModal">&times;</button>
-            <div class="modal-icon">
-                <i class="fas fa-heart"></i>
-            </div>
-            <h3>Thank You for Your Generosity!</h3>
-            <p id="modal-message">Your sponsorship/donation has been received successfully. You will receive a confirmation email shortly with further details.</p>
-            <p>Your support is transforming a child's life through education.</p>
-            <button class="btn btn-accent" id="modalOkBtn" style="margin-top: 1.5rem;">Continue</button>
-        </div>
-    </div>
 
     <script>
         // Mobile Menu Toggle
@@ -1408,6 +1392,10 @@
                     navMenu.classList.remove('active');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 }
+                
+                // Update active link
+                navLinks.forEach(item => item.classList.remove('active'));
+                link.classList.add('active');
             });
         });
         
@@ -1429,187 +1417,63 @@
             });
         });
         
-        // Form Tab Switching
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
+        // Header scroll effect
+        const header = document.getElementById('mainHeader');
         
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tabId = btn.getAttribute('data-tab');
-                
-                // Remove active class from all tabs and contents
-                tabBtns.forEach(b => b.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked tab and corresponding content
-                btn.classList.add('active');
-                document.getElementById(`${tabId}-form`).classList.add('active');
-            });
-        });
-        
-        // Child Selection
-        const childOptions = document.querySelectorAll('.child-option');
-        const selectedChildInput = document.getElementById('selected-child');
-        const feeAmountElement = document.getElementById('fee-amount');
-        const totalAmountElement = document.getElementById('total-amount');
-        
-        childOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                // Remove selected class from all options
-                childOptions.forEach(opt => opt.classList.remove('selected'));
-                
-                // Add selected class to clicked option
-                option.classList.add('selected');
-                
-                // Update hidden input value
-                const child = option.getAttribute('data-child');
-                selectedChildInput.value = child;
-                
-                // Update fee amount based on selection
-                let fee = 0;
-                if (child === 'mary') fee = 850;
-                else if (child === 'john') fee = 1250;
-                else fee = 1000;
-                
-                feeAmountElement.textContent = `$${fee}`;
-                totalAmountElement.textContent = `$${fee + 25}`;
-            });
-        });
-        
-        // Set default selection
-        childOptions[0].click();
-        
-        // Donation Amount Selection
-        const amountOptions = document.querySelectorAll('.amount-option');
-        const donationAmountInput = document.getElementById('donation-amount');
-        const customAmountInput = document.getElementById('custom-amount');
-        const donationSummaryElement = document.getElementById('donation-summary');
-        const donationTotalElement = document.getElementById('donation-total');
-        
-        amountOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                // Remove selected class from all options
-                amountOptions.forEach(opt => opt.classList.remove('selected'));
-                
-                // Add selected class to clicked option
-                option.classList.add('selected');
-                
-                // Update donation amount
-                const amount = option.getAttribute('data-amount');
-                donationAmountInput.value = amount;
-                donationSummaryElement.textContent = `$${amount}`;
-                donationTotalElement.textContent = `$${amount}`;
-                
-                // Clear custom amount
-                customAmountInput.value = '';
-            });
-        });
-        
-        // Custom donation amount
-        customAmountInput.addEventListener('input', () => {
-            const customAmount = parseInt(customAmountInput.value) || 0;
-            
-            if (customAmount > 0) {
-                // Remove selected class from preset options
-                amountOptions.forEach(opt => opt.classList.remove('selected'));
-                
-                // Update donation amount
-                donationAmountInput.value = customAmount;
-                donationSummaryElement.textContent = `$${customAmount}`;
-                donationTotalElement.textContent = `$${customAmount}`;
-            }
-        });
-        
-        // Sponsorship Duration Change
-        const durationSelect = document.getElementById('sponsor-duration');
-        durationSelect.addEventListener('change', () => {
-            const selectedChild = selectedChildInput.value;
-            let fee = 0;
-            
-            if (selectedChild === 'mary') fee = 850;
-            else if (selectedChild === 'john') fee = 1250;
-            else fee = 1000;
-            
-            const duration = parseInt(durationSelect.value);
-            let totalFee = fee * duration;
-            
-            // For "until graduation" option
-            if (isNaN(duration)) {
-                totalFee = fee * 4; // Assume average of 4 years
-            }
-            
-            feeAmountElement.textContent = `$${totalFee}`;
-            totalAmountElement.textContent = `$${totalFee + 25}`;
-        });
-        
-        // Modal Elements
-        const successModal = document.getElementById('successModal');
-        const closeModalBtn = document.getElementById('closeModal');
-        const modalOkBtn = document.getElementById('modalOkBtn');
-        const modalMessage = document.getElementById('modal-message');
-        
-        // Close modal functions
-        closeModalBtn.addEventListener('click', () => {
-            successModal.style.display = 'none';
-        });
-        
-        modalOkBtn.addEventListener('click', () => {
-            successModal.style.display = 'none';
-        });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === successModal) {
-                successModal.style.display = 'none';
-            }
-        });
-        
-        // Sponsorship Form Submission
-        const sponsorshipForm = document.getElementById('sponsorshipForm');
-        sponsorshipForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const sponsorName = document.getElementById('sponsor-name').value;
-            const selectedChild = selectedChildInput.value;
-            
-            // In a real application, you would submit to a server here
-            // For demo purposes, we'll just show a success message
-            modalMessage.textContent = `Thank you, ${sponsorName}! Your sponsorship for ${selectedChild === 'mary' ? 'Mary' : selectedChild === 'john' ? 'John' : 'a child in need'} has been processed successfully. You will receive a confirmation email with further details.`;
-            successModal.style.display = 'flex';
-            
-            // Reset form (in a real app, you might not want to reset until payment is confirmed)
-            sponsorshipForm.reset();
-            childOptions[0].click();
-        });
-        
-        // Donation Form Submission
-        const donationForm = document.getElementById('donationForm');
-        donationForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const donorName = document.getElementById('donor-name').value;
-            const donationAmount = donationAmountInput.value;
-            const purpose = document.getElementById('donation-purpose').value;
-            
-            // In a real application, you would submit to a server here
-            // For demo purposes, we'll just show a success message
-            modalMessage.textContent = `Thank you, ${donorName}! Your donation of $${donationAmount} to the ${purpose} fund has been received. You will receive a tax receipt via email.`;
-            successModal.style.display = 'flex';
-            
-            // Reset form (in a real app, you might not want to reset until payment is confirmed)
-            donationForm.reset();
-            amountOptions[4].click();
-        });
-        
-        // Add scroll effect to header
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
             } else {
-                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.08)';
+                header.classList.remove('scrolled');
             }
         });
+        
+        // Animation on scroll
+        const animatedElements = document.querySelectorAll('.feature-card, .school-card, .sponsorship-card, .stat');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        // Set initial state for animated elements
+        animatedElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(element);
+        });
+        
+        // Set active link based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        
+        function setActiveLink() {
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', setActiveLink);
     </script>
 </body>
 </html>
