@@ -46,12 +46,12 @@
             padding: 0 15px;
         }
 
-        /* NEW MODERN HEADER STYLES */
+        /* STATIONARY HEADER STYLES */
         header {
             background-color: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             box-shadow: 0 5px 30px rgba(10, 61, 98, 0.1);
-            position: fixed;
+            position: fixed; /* Changed to fixed for stationary header */
             top: 0;
             left: 0;
             width: 100%;
@@ -361,11 +361,12 @@
             box-shadow: 0 6px 20px rgba(10, 61, 98, 0.3);
         }
 
-        /* Header on Scroll */
+        /* Header on Scroll - Only shrink effect, no hiding */
         header.scrolled {
             padding: 0.5rem 0;
             box-shadow: 0 5px 20px rgba(10, 61, 98, 0.15);
             background-color: rgba(255, 255, 255, 0.98);
+            transform: translateY(0) !important; /* Ensure it stays visible */
         }
 
         header.scrolled .logo-icon {
@@ -1381,7 +1382,7 @@
     </style>
 </head>
 <body>
-    <!-- NEW MODERN HEADER -->
+    <!-- STATIONARY HEADER -->
     <header id="mainHeader">
         <div class="container">
             <div class="header-content">
@@ -1727,30 +1728,21 @@
             });
         });
         
-        // Header scroll effect
+        // Header scroll effect - ONLY SHRINK, NO HIDING
         const header = document.getElementById('mainHeader');
-        let lastScroll = 0;
         
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
             
-            // Add/remove scrolled class based on scroll position
+            // Add/remove scrolled class based on scroll position for shrink effect
             if (currentScroll > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
             
-            // Hide/show header on scroll
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                // Scrolling down
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                // Scrolling up
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScroll = currentScroll;
+            // REMOVED: No hiding/showing of header on scroll
+            // Header will stay visible at all times
         });
         
         // Smooth scrolling for anchor links
