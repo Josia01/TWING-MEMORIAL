@@ -3,30 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twing Memorial Schools | Quality Education Since 1985</title>
+    <title>Sunrise Academy - Excellence in Education</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #1a5f7a;
-            --secondary: #57cc99;
-            --accent: #ff9a3c;
-            --light: #f8f9fa;
-            --dark: #2d3436;
-            --success: #28a745;
-            --warning: #ffc107;
-            --gradient-primary: linear-gradient(135deg, #1a5f7a 0%, #2a7fa9 100%);
-            --gradient-secondary: linear-gradient(135deg, #57cc99 0%, #3bbf7f 100%);
-            --gradient-accent: linear-gradient(135deg, #ff9a3c 0%, #ff7b00 100%);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1a4d8c;
+            --secondary: #f9a826;
+            --light: #f5f7fa;
+            --dark: #333;
+            --accent: #e63946;
         }
 
         html {
@@ -34,40 +26,158 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.7;
-            color: #444;
-            background-color: #fff;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            line-height: 1.3;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: var(--dark);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 77, 140, 0.8), rgba(26, 77, 140, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e69500;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            margin-left: 10px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0d3a6c;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
+            margin-bottom: 50px;
         }
 
         .section-title h2 {
-            font-size: 2.8rem;
-            display: inline-block;
+            font-size: 36px;
+            color: var(--primary);
             position: relative;
-            padding-bottom: 20px;
-            margin-bottom: 1rem;
+            display: inline-block;
+            padding-bottom: 15px;
         }
 
         .section-title h2::after {
@@ -76,395 +186,29 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--gradient-secondary);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: #666;
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            font-weight: 400;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--gradient-secondary);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: 0 5px 15px rgba(87, 204, 153, 0.3);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #3bbf7f 0%, #57cc99 100%);
-            z-index: -1;
-            transition: var(--transition);
-            opacity: 0;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(87, 204, 153, 0.4);
-        }
-
-        .btn:hover::before {
-            opacity: 1;
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            box-shadow: 0 5px 15px rgba(26, 95, 122, 0.3);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 15px 25px rgba(26, 95, 122, 0.4);
-        }
-
-        .btn-accent {
-            background: var(--gradient-accent);
-            box-shadow: 0 5px 15px rgba(255, 154, 60, 0.3);
-        }
-
-        .btn-accent:hover {
-            box-shadow: 0 15px 25px rgba(255, 154, 60, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--secondary);
-            color: var(--primary);
-            box-shadow: none;
-        }
-
-        .btn-outline:hover {
-            background: var(--gradient-secondary);
-            color: white;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: var(--transition);
-            padding: 1rem 0;
-        }
-
-        header.scrolled {
-            padding: 0.7rem 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            background-color: rgba(255, 255, 255, 0.98);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            transform: translateY(-2px);
-        }
-
-        .logo-icon {
-            background: var(--gradient-primary);
-            color: white;
-            width: 55px;
-            height: 55px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-right: 15px;
-            box-shadow: 0 5px 15px rgba(26, 95, 122, 0.2);
-            transition: var(--transition);
-        }
-
-        .logo:hover .logo-icon {
-            transform: rotate(5deg);
-            box-shadow: 0 8px 20px rgba(26, 95, 122, 0.3);
-        }
-
-        .logo-text h1 {
-            font-size: 1.6rem;
-            margin-bottom: 0;
-            color: var(--primary);
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-text span {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            display: block;
-            margin-top: 2px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            transition: var(--transition);
-            padding: 0.5rem 0;
-            position: relative;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            letter-spacing: 0.3px;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
+            width: 80px;
             height: 3px;
-            background: var(--gradient-secondary);
-            border-radius: 3px;
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-
-        nav ul li a.active {
-            color: var(--primary);
-        }
-
-        nav ul li a.active::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(26, 95, 122, 0.2);
-        }
-
-        .mobile-menu-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(26, 95, 122, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(26, 95, 122, 0.9), rgba(26, 95, 122, 0.95)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            text-align: center;
-            padding: 180px 0 120px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background: linear-gradient(to top, white, transparent);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h2 {
-            font-size: 3.8rem;
-            margin-bottom: 1.5rem;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            color: rgba(255, 255, 255, 0.95);
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Features Section */
-        .features {
-            padding: 6rem 0;
-            background-color: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .feature-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--gradient-secondary);
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .feature-card:hover::before {
-            width: 100%;
-            opacity: 0.05;
-        }
-
-        .feature-icon {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.8rem;
-            font-size: 2.5rem;
-            transition: var(--transition);
-            position: relative;
-            z-index: 2;
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-            background: var(--gradient-secondary);
-        }
-
-        .feature-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .feature-card p {
-            color: #666;
-            position: relative;
-            z-index: 2;
+            background-color: var(--secondary);
         }
 
         /* About Section */
-        .about {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a5f7a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.5;
-        }
-
         .about-content {
             display: flex;
             align-items: center;
-            gap: 5rem;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .about-text {
@@ -472,931 +216,543 @@
         }
 
         .about-text h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
         }
 
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: #555;
-            font-size: 1.05rem;
+        /* Academics Section */
+        .academics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .about-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 1.5rem;
-            flex: 1;
-            min-width: 150px;
+        .academic-card {
             background-color: white;
             border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            text-align: center;
         }
 
-        .stat:hover {
+        .academic-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
         }
 
-        .stat h4 {
-            font-size: 2.8rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.5rem;
-            font-weight: 800;
+        .academic-icon {
+            background-color: rgba(26, 77, 140, 0.1);
+            color: var(--primary);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
         }
 
-        .stat p {
-            color: #666;
-            font-weight: 500;
-            font-size: 0.95rem;
-            margin-bottom: 0;
+        .academic-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
         }
 
-        .about-image {
-            flex: 1;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-            transition: var(--transition);
-        }
-
-        .about-image:hover {
-            transform: perspective(1000px) rotateY(0) rotateX(0);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Schools Section */
-        .schools {
-            padding: 6rem 0;
-            background-color: white;
-        }
-
-        .schools-container {
+        /* News Section */
+        .news-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .school-card {
+        .news-card {
             background-color: white;
-            border-radius: 20px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .school-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(26, 95, 122, 0.1));
-            z-index: 1;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .school-card:hover::before {
-            opacity: 1;
-        }
-
-        .school-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .school-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--gradient-accent);
-            color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            z-index: 2;
-            box-shadow: 0 5px 15px rgba(255, 154, 60, 0.3);
-        }
-
-        .school-image {
-            height: 250px;
+        .news-img {
+            height: 200px;
             overflow: hidden;
         }
 
-        .school-image img {
+        .news-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: transform 0.5s;
         }
 
-        .school-card:hover .school-image img {
+        .news-card:hover .news-img img {
             transform: scale(1.1);
         }
 
-        .school-info {
-            padding: 2.5rem;
-            position: relative;
-            z-index: 2;
+        .news-content {
+            padding: 25px;
         }
 
-        .school-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .school-info p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .school-features {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .school-features li {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            color: #555;
-        }
-
-        .school-features i {
+        .news-date {
             color: var(--secondary);
-            margin-right: 12px;
-            font-size: 1.1rem;
-            width: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
         }
 
-        /* Sponsorship Section */
-        .sponsorship {
-            padding: 6rem 0;
-            background: var(--gradient-primary);
-            color: white;
-            position: relative;
-            overflow: hidden;
+        .news-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
         }
 
-        .sponsorship::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0px, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0px, transparent 50%);
-        }
-
-        .sponsorship .section-title h2 {
-            color: white;
-        }
-
-        .sponsorship .section-title p {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .sponsorship-container {
+        /* Contact Section */
+        .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            position: relative;
-            z-index: 1;
+            gap: 50px;
         }
 
-        .sponsorship-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
         }
 
-        .sponsorship-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            z-index: -1;
-            opacity: 0;
-            transition: var(--transition);
+        .contact-details {
+            margin-top: 30px;
         }
 
-        .sponsorship-card:hover {
-            transform: translateY(-15px);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .sponsorship-card:hover::before {
-            opacity: 1;
-        }
-
-        .sponsorship-icon {
-            width: 100px;
-            height: 100px;
+        .contact-icon {
+            background-color: rgba(26, 77, 140, 0.1);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 2rem;
-            font-size: 3rem;
-            transition: var(--transition);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-right: 15px;
+            font-size: 20px;
         }
 
-        .sponsorship-card:hover .sponsorship-icon {
-            transform: scale(1.1) rotate(10deg);
-            background: rgba(255, 255, 255, 0.3);
-            border-color: var(--accent);
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
-        .sponsorship-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .sponsorship-card p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-        }
-
-        .sponsorship-stats {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .sponsorship-stat h4 {
-            font-size: 2.2rem;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .sponsorship-stat p {
-            font-size: 0.9rem;
-            margin-bottom: 0;
-            opacity: 0.9;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-btns {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
         }
 
         /* Footer */
         footer {
-            background: var(--gradient-primary);
+            background-color: var(--primary);
             color: white;
-            padding: 5rem 0 2rem;
-            position: relative;
+            padding: 60px 0 30px;
         }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-
-        .footer-content {
+        .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
             position: relative;
-            z-index: 2;
+            padding-bottom: 10px;
         }
 
-        .footer-logo h3 {
-            color: white;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-logo p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .footer-links h4, .footer-contact h4 {
-            color: white;
-            margin-bottom: 2rem;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-links h4::after, .footer-contact h4::after {
+        .footer-col h3::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 50px;
-            height: 3px;
-            background-color: var(--accent);
-            border-radius: 3px;
+            height: 2px;
+            background-color: var(--secondary);
         }
 
-        .footer-links ul {
+        .footer-links li {
             list-style: none;
+            margin-bottom: 10px;
         }
 
-        .footer-links ul li {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links ul li a {
-            color: rgba(255, 255, 255, 0.8);
+        .footer-links a {
+            color: #ddd;
             text-decoration: none;
-            transition: var(--transition);
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
             display: flex;
             align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
         }
 
-        .footer-links ul li a i {
-            margin-right: 10px;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .footer-links ul li a:hover {
-            color: var(--accent);
-            padding-left: 10px;
-        }
-
-        .footer-links ul li a:hover i {
-            transform: translateX(5px);
-        }
-
-        .footer-contact p {
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .footer-contact i {
-            margin-right: 15px;
-            color: var(--accent);
-            font-size: 1.2rem;
-            width: 25px;
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
         }
 
         .copyright {
             text-align: center;
-            padding-top: 3rem;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            position: relative;
-            z-index: 2;
+            font-size: 14px;
         }
 
         /* Responsive Styles */
-        @media (max-width: 1100px) {
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
             .about-content {
                 flex-direction: column;
-                gap: 4rem;
-            }
-            
-            .about-image {
-                order: -1;
-                max-width: 600px;
-                margin: 0 auto;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 3rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
-            
-            nav ul {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-                gap: 0;
-            }
-            
-            nav ul.active {
-                display: flex;
-            }
-            
-            nav ul li {
-                text-align: center;
-                padding: 1rem 0;
-                width: 100%;
-            }
-            
-            nav ul li a {
-                display: block;
-                padding: 0.8rem;
-                font-size: 1.1rem;
-            }
-            
-            .mobile-menu-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .schools-container {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin: 0 auto;
             }
         }
 
         @media (max-width: 768px) {
-            .hero {
-                padding: 150px 0 100px;
-            }
-            
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
                 width: 100%;
-                max-width: 300px;
+                background-color: white;
+                transition: left 0.5s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
             }
-            
-            .about-stats {
-                justify-content: center;
-            }
-            
-            .sponsorship-container {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-            
-            .cta h2 {
-                font-size: 2.3rem;
-            }
-            
-            .cta-btns {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
 
-        @media (max-width: 480px) {
-            .hero h2 {
-                font-size: 2rem;
+            nav.active {
+                left: 0;
             }
-            
-            .section-title h2 {
-                font-size: 2rem;
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
             }
-            
-            .logo-text h1 {
-                font-size: 1.3rem;
+
+            nav ul li {
+                margin: 0 0 20px 0;
             }
-            
-            .logo-text span {
-                font-size: 0.7rem;
+
+            .mobile-menu-btn {
+                display: block;
             }
-            
-            .feature-card, .sponsorship-card {
-                padding: 2rem 1.5rem;
+
+            .hero {
+                padding: 150px 0 80px;
             }
-            
-            .stat {
-                min-width: 120px;
-                padding: 1.2rem;
+
+            .hero h1 {
+                font-size: 30px;
             }
-            
-            .stat h4 {
-                font-size: 2.2rem;
+
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                margin: 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="mainHeader">
-        <div class="container">
-            <div class="header-content">
-                <a href="#home" class="logo">
-                    <div class="logo-icon">TMS</div>
-                    <div class="logo-text">
-                        <h1>Twing Memorial Schools</h1>
-                        <span>High School & Elementary</span>
-                    </div>
-                </a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <nav>
-                    <ul id="navMenu">
-                        <li><a href="#home" class="active">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#schools">Our Schools</a></li>
-                        <li><a href="#features">Why Choose Us</a></li>
-                        <li><a href="#sponsorship">Sponsor a Child</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Sunrise Academy</h1>
+                    <p>Excellence in Education Since 1995</p>
+                </div>
             </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#news">News & Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
-                <h2>Empowering Minds, Building Futures</h2>
-                <p>Twing Memorial Schools provides exceptional education for elementary and high school students, fostering academic excellence and character development since 1985.</p>
-                <div class="hero-btns">
-                    <a href="#sponsorship" class="btn btn-accent">Sponsor a Child's Education</a>
-                    <a href="#schools" class="btn btn-outline">Explore Our Schools</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Twing Memorial</h2>
-                <p>We provide a holistic educational experience that prepares students for success in life</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Academic Excellence</h3>
-                    <p>Consistently high graduation rates with students excelling in national examinations and university placements.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Experienced Faculty</h3>
-                    <p>Our dedicated teachers have an average of 15+ years experience with specialized training in modern pedagogy.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Inclusive Community</h3>
-                    <p>We believe every child deserves quality education regardless of their family's financial situation.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Modern Facilities</h3>
-                    <p>State-of-the-art classrooms, science labs, sports facilities, and technology integration across campuses.</p>
-                </div>
+            <h1>Shaping Future Leaders Through Education</h1>
+            <p>At Sunrise Academy, we provide a nurturing environment that fosters academic excellence, character development, and lifelong learning for students from kindergarten through high school.</p>
+            <div class="btn-container">
+                <a href="#about" class="btn">Learn More</a>
+                <a href="#contact" class="btn btn-primary">Contact Us</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section id="about">
         <div class="container">
             <div class="section-title">
-                <h2>About Our Institution</h2>
-                <p>With over 35 years of educational excellence, Twing Memorial has been a pillar of quality education</p>
+                <h2>About Our School</h2>
             </div>
             <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Sunrise Academy campus">
+                </div>
                 <div class="about-text">
-                    <h3>Our Mission & Vision</h3>
-                    <p>Founded in 1985 in memory of Dr. Jonathan Twing, our institution is dedicated to providing accessible, quality education that nurtures both academic excellence and strong moral character.</p>
-                    <p>We believe every child deserves the opportunity to learn, grow, and reach their full potential. Our holistic approach combines rigorous academics with character development, sports, arts, and community service.</p>
-                    <p>Our graduates have gone on to excel in universities worldwide and make meaningful contributions to society across various fields.</p>
+                    <h3>Welcome to Sunrise Academy</h3>
+                    <p>Founded in 1995, Sunrise Academy has been committed to providing a comprehensive and challenging educational experience that prepares students for success in college and beyond.</p>
+                    <p>Our dedicated faculty, state-of-the-art facilities, and diverse curriculum create an environment where students can explore their interests, develop critical thinking skills, and grow as individuals.</p>
+                    <p>We believe in educating the whole child - academically, socially, emotionally, and physically - to become responsible global citizens.</p>
+                    <a href="#" class="btn" style="margin-top: 20px;">Read Our Mission</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics" style="background-color: #f0f4f8;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Academics</h2>
+            </div>
+            <div class="academics-container">
+                <div class="academic-card">
+                    <div class="academic-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Elementary School</h3>
+                    <p>Our elementary program focuses on foundational skills in literacy, mathematics, and science while encouraging curiosity and creativity.</p>
+                </div>
+                <div class="academic-card">
+                    <div class="academic-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Middle School</h3>
+                    <p>We provide a challenging curriculum that helps students develop critical thinking skills and explore a variety of subjects and interests.</p>
+                </div>
+                <div class="academic-card">
+                    <div class="academic-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>High School</h3>
+                    <p>Our college-preparatory program includes Advanced Placement courses, extracurricular activities, and comprehensive college counseling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Events Section -->
+    <section id="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest News & Events</h2>
+            </div>
+            <div class="news-container">
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Science fair">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">June 15, 2023</div>
+                        <h3>Annual Science Fair Winners Announced</h3>
+                        <p>Congratulations to all participants in our annual science fair. Special recognition to Sarah Johnson for her innovative renewable energy project.</p>
+                        <a href="#" class="btn" style="padding: 8px 20px; margin-top: 10px; font-size: 14px;">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Graduation ceremony">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">June 1, 2023</div>
+                        <h3>Class of 2023 Graduation Ceremony</h3>
+                        <p>Join us in celebrating our graduating seniors at the annual commencement ceremony on June 15th at the school auditorium.</p>
+                        <a href="#" class="btn" style="padding: 8px 20px; margin-top: 10px; font-size: 14px;">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Sports day">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">May 20, 2023</div>
+                        <h3>Spring Sports Day Results</h3>
+                        <p>Our annual sports day was a huge success with students participating in various track and field events. Congratulations to all winners!</p>
+                        <a href="#" class="btn" style="padding: 8px 20px; margin-top: 10px; font-size: 14px;">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f0f4f8;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>We welcome inquiries from prospective students and parents. Feel free to contact us with any questions about our programs, admissions process, or to schedule a campus tour.</p>
                     
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h4>35+</h4>
-                            <p>Years of Excellence</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>123 Education Lane, Academic City, AC 12345</p>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <h4>2,500+</h4>
-                            <p>Students Educated</p>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>(555) 123-4567</p>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <h4>98%</h4>
-                            <p>Graduation Rate</p>
-                        </div>
-                        <div class="stat">
-                            <h4>120+</h4>
-                            <p>Dedicated Staff</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Twing Memorial School Campus">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Schools Section -->
-    <section class="schools" id="schools">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Schools</h2>
-                <p>Two distinct campuses tailored to different age groups, each with specialized facilities and programs</p>
-            </div>
-            <div class="schools-container">
-                <div class="school-card">
-                    <div class="school-badge">Elementary</div>
-                    <div class="school-image">
-                        <img src="https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Twing Elementary School">
-                    </div>
-                    <div class="school-info">
-                        <h3>Twing Memorial Elementary School</h3>
-                        <p>Grades 1-6: Building strong foundations in literacy, numeracy, and social skills in a nurturing environment designed for young learners.</p>
-                        <ul class="school-features">
-                            <li><i class="fas fa-check"></i> Age-appropriate learning facilities</li>
-                            <li><i class="fas fa-check"></i> Specialized early childhood educators</li>
-                            <li><i class="fas fa-check"></i> After-school care program</li>
-                            <li><i class="fas fa-check"></i> Music, art, and physical education</li>
-                            <li><i class="fas fa-check"></i> Safe and secure campus environment</li>
-                        </ul>
-                        <a href="sponsor.html" class="btn" style="margin-top: 1.5rem;">Sponsor an Elementary Student</a>
-                    </div>
-                </div>
-                <div class="school-card">
-                    <div class="school-badge">High School</div>
-                    <div class="school-image">
-                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Twing High School">
-                    </div>
-                    <div class="school-info">
-                        <h3>Twing Memorial High School</h3>
-                        <p>Grades 7-12: Preparing students for college and career with advanced academics, leadership opportunities, and extracurricular programs.</p>
-                        <ul class="school-features">
-                            <li><i class="fas fa-check"></i> College preparatory curriculum</li>
-                            <li><i class="fas fa-check"></i> STEM laboratory facilities</li>
-                            <li><i class="fas fa-check"></i> Sports and athletic programs</li>
-                            <li><i class="fas fa-check"></i> Career guidance and counseling</li>
-                            <li><i class="fas fa-check"></i> Leadership development programs</li>
-                        </ul>
-                        <a href="sponsor.html" class="btn btn-primary" style="margin-top: 1.5rem;">Sponsor a High School Student</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sponsorship Section -->
-    <section class="sponsorship" id="sponsorship">
-        <div class="container">
-            <div class="section-title">
-                <h2>Sponsor a Child's Education</h2>
-                <p>Change a life through education. Your sponsorship provides hope, opportunity, and a pathway out of poverty</p>
-            </div>
-            <div class="sponsorship-container">
-                <div class="sponsorship-card">
-                    <div class="sponsorship-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h3>Full Sponsorship</h3>
-                    <p>Cover all school expenses for a child including tuition, uniforms, books, and meals for an entire academic year.</p>
-                    <div class="sponsorship-stats">
-                        <div class="sponsorship-stat">
-                            <h4>247</h4>
-                            <p>Children Sponsored</p>
-                        </div>
-                        <div class="sponsorship-stat">
-                            <h4>93%</h4>
-                            <p>Graduation Rate</p>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@sunriseacademy.edu</p>
+                            </div>
                         </div>
                     </div>
-                    <a href="sponsor.html" class="btn btn-accent" style="margin-top: 2rem;">Sponsor a Child</a>
                 </div>
                 
-                <div class="sponsorship-card">
-                    <div class="sponsorship-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Partial Sponsorship</h3>
-                    <p>Contribute towards a child's education by covering specific needs like books, uniforms, or school supplies.</p>
-                    <div class="sponsorship-stats">
-                        <div class="sponsorship-stat">
-                            <h4>$85K</h4>
-                            <p>Raised This Year</p>
-                        </div>
-                        <div class="sponsorship-stat">
-                            <h4>100%</h4>
-                            <p>Funds to Education</p>
-                        </div>
-                    </div>
-                    <a href="sponsor.html" class="btn" style="margin-top: 2rem;">Make a Donation</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Make a Difference?</h2>
-                <p>Join our community of sponsors and donors who are transforming lives through education. Your support today creates leaders for tomorrow.</p>
-                <div class="cta-btns">
-                    <a href="sponsor.html" class="btn btn-accent">Start Sponsoring Now</a>
-                    <a href="#contact" class="btn btn-primary">Contact Us</a>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>Twing Memorial Schools</h3>
-                    <p>Providing quality education since 1985. High School & Elementary campuses dedicated to nurturing tomorrow's leaders.</p>
-                    <div class="social-links">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sunrise Academy</h3>
+                    <p>Providing quality education for over 25 years. Our mission is to inspire students to achieve their full potential and become responsible global citizens.</p>
+                    <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="#schools"><i class="fas fa-chevron-right"></i> Our Schools</a></li>
-                        <li><a href="#features"><i class="fas fa-chevron-right"></i> Why Choose Us</a></li>
-                        <li><a href="sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#academics">Academics</a></li>
+                        <li><a href="#news">News & Events</a></li>
+                        <li><a href="#contact">Admissions</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Education Avenue, Academic City, AC 10001</p>
-                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    <p><i class="fas fa-envelope"></i> info@twingmemorial.edu</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
-                    <p><i class="fas fa-globe"></i> www.twingmemorial.edu</p>
+                <div class="footer-col">
+                    <h3>School Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Friday: 8:00 AM - 3:30 PM</li>
+                        <li>Saturday: 9:00 AM - 12:00 PM</li>
+                        <li>Sunday: Closed</li>
+                        <li>Office Hours: 7:30 AM - 4:30 PM</li>
+                    </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Twing Memorial Schools. All rights reserved. | Non-Profit Registration #123-456-789</p>
+                <p>&copy; 2023 Sunrise Academy. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: #f9a826;"></i> for education</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
+        const mainNav = document.getElementById('mainNav');
         
         mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
         
-        // Close menu when clicking a link
-        const navLinks = document.querySelectorAll('nav ul li a');
-        navLinks.forEach(link => {
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
-                if (window.innerWidth <= 992) {
-                    navMenu.classList.remove('active');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                }
-                
-                // Update active link
-                navLinks.forEach(item => item.classList.remove('active'));
-                link.classList.add('active');
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
         });
         
         // Smooth scrolling for anchor links
@@ -1416,64 +772,6 @@
                 }
             });
         });
-        
-        // Header scroll effect
-        const header = document.getElementById('mainHeader');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Animation on scroll
-        const animatedElements = document.querySelectorAll('.feature-card, .school-card, .sponsorship-card, .stat');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-        
-        // Set initial state for animated elements
-        animatedElements.forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(element);
-        });
-        
-        // Set active link based on scroll position
-        const sections = document.querySelectorAll('section[id]');
-        
-        function setActiveLink() {
-            const scrollPosition = window.scrollY + 100;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', setActiveLink);
     </script>
 </body>
 </html>
